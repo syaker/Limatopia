@@ -4,7 +4,7 @@ Bienvenida a tu primer proyecto del track de Frontend en Laboratoria.
 
 En este proyecto construirás una red social, cuya temáticas dejaremos a tu elección.
 
-Aquí algunas ideas para inspirarte: hhhhhhhhhhhhhhhhhhhhhhhhhhhh
+Aquí algunas ideas para inspirarte:
 
 - Alimentación
 - Feminismo
