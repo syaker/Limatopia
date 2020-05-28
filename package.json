@@ -16,6 +16,7 @@
     "pretest": "npm run htmlhint && npm run eslint && npm run stylelint",
     "test": "jest --coverage",
     "start": "serve src/",
+    "start-sass": "concurrently \"npm:sass-watch\" \"npm:start\"",
     "sass-build": "node-sass --output-style content src/styles/css/scss/style.scss src/styles/css/style.css",
     "sass-watch": "node-sass --watch --output-style expanded src/styles/css/scss/style.scss src/styles/css/style.css"
   },
@@ -24,6 +25,7 @@
     "@babel/plugin-transform-modules-commonjs": "^7.2.0",
     "babel-core": "^7.0.0-bridge.0",
     "babel-jest": "^24.8.0",
+    "concurrently": "^5.2.0",
     "eslint": "^6.0.1",
     "eslint-config-airbnb-base": "^13.2.0",
     "eslint-plugin-import": "^2.18.2",
@@ -37,7 +39,7 @@
   },
   "dependencies": {
     "@babel/cli": "7.8.4",
-    "node-sass": "4.14.1",
-    "sass": "^1.26.5"
+	"node-sass": "4.14.1",
+	"sass": "1.26.5"
   }
 }
