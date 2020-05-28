@@ -1,3 +1,7 @@
+header {
+  display: none;
+}
+
 .All-sections {
   min-height: 100vh;
   justify-content: center;
@@ -16,14 +20,12 @@ h1 {
   justify-content: center;
   margin-bottom: 2.1875rem;
 }
-
 h1 img {
   width: 15px;
   height: 71px;
   margin: 0 0.3rem;
   font-family: "Roboto";
 }
-
 h1 img span {
   color: #e59041;
 }
@@ -34,7 +36,6 @@ h1 img span {
   padding-bottom: 2rem;
   justify-content: space-around;
 }
-
 .sectionSubTitle a {
   color: whitesmoke;
   font-size: 0.9375rem;
@@ -42,13 +43,11 @@ h1 img span {
   font-family: "Roboto";
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
-
 .sectionSubTitle a:hover {
   color: #ce5c35;
   font-weight: bolder;
   text-decoration: underline;
 }
-
 .sectionSubTitle h2 {
   color: whitesmoke;
   font-size: 1.875rem;
@@ -65,7 +64,6 @@ h1 img span {
   justify-content: center;
   padding: 2rem 1rem;
 }
-
 .container .item {
   display: flex;
   max-width: 100%;
@@ -77,7 +75,6 @@ h1 img span {
   text-transform: uppercase;
   border: 0.0625rem solid whitesmoke;
 }
-
 .container .item img {
   margin: 0.4rem;
   width: 40px;
@@ -85,7 +82,6 @@ h1 img span {
   height: 40px;
   border-radius: 50%;
 }
-
 .container .item input {
   border: none;
   width: 100%;
@@ -145,7 +141,6 @@ h1 img span {
   display: flex;
   justify-content: center;
 }
-
 .sectionNetworks img {
   width: 60px;
   height: 60px;
@@ -154,7 +149,6 @@ h1 img span {
   margin: 1.25rem 1.25rem 1.875rem 1.25rem;
   box-shadow: 0.4375rem 1.5625rem 2rem -0.3125rem rgba(0, 0, 0, 0.38);
 }
-
 .sectionNetworks img:hover {
   padding: 0.625rem;
   border: transparent;
@@ -167,7 +161,6 @@ h1 img span {
   display: flex;
   justify-content: center;
 }
-
 .loginButton .loginButtonSon {
   height: 50px;
   width: 153px;
@@ -176,7 +169,6 @@ h1 img span {
   border-radius: 3.125rem;
   border: 0.625rem solid rgba(0, 0, 0, 0.15);
 }
-
 .loginButton button {
   width: 100%;
   height: 100%;
@@ -189,7 +181,6 @@ h1 img span {
   font: bolder 0.9375rem Roboto;
   background: linear-gradient(82.14deg, #ec9443 -3.88%, #c85032 64.89%);
 }
-
 .loginButton button:hover {
   background: linear-gradient(141deg, #c85032 33%, #ec9443 64%);
 }
@@ -227,7 +218,6 @@ p {
   justify-content: center;
   font-family: "Roboto";
 }
-
 p span a {
   font-size: 1rem;
   color: #ce5c35;
@@ -236,7 +226,6 @@ p span a {
   margin-left: 0.3125rem;
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
-
 p span a:hover {
   color: grey;
   font-weight: bolder;
@@ -248,6 +237,9 @@ p span a:hover {
   justify-content: center;
   overflow: hidden;
   position: relative;
+}
+.sectionSon #containerLogIn h1 {
+  display: none;
 }
 
 #circle1 {
@@ -270,7 +262,7 @@ p span a:hover {
   top: -8%;
   right: -30%;
   z-index: -10;
-  background: radial-gradient(50% 50% at 50% 50%, #6C4237 76.04%, #C03510 100%);
+  background: radial-gradient(50% 50% at 50% 50%, #6c4237 76.04%, #c03510 100%);
 }
 
 @media (min-width: 1024px) and (min-height: 625px) and (max-height: 1024px) {
@@ -281,18 +273,21 @@ p span a:hover {
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-color: none;
+    overflow: hidden;
   }
+
   body:before {
     content: "";
     background-color: #000;
-    opacity: 0.88;
+    opacity: 1;
     background: linear-gradient(180deg, rgba(0, 0, 0, 0) 40.1%, #000000 97.4%), linear-gradient(0deg, rgba(0, 0, 0, 0.08), rgba(0, 0, 0, 0.08));
     width: 100%;
     height: 100%;
     position: absolute;
     z-index: -1;
   }
-  header {
+
+  #allBody .log_sign-header {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
@@ -302,24 +297,24 @@ p span a:hover {
     padding: 0.7rem 2rem 0.7rem 2rem;
     justify-content: space-between;
   }
-  header .logo-icon {
+  #allBody .log_sign-header .logo-icon {
     display: flex;
     align-items: center;
     text-align: center;
     width: 30px;
   }
-  header .logo-icon img {
+  #allBody .log_sign-header .logo-icon img {
     width: 130%;
     height: 85%;
   }
-  header .logo-principal {
+  #allBody .log_sign-header .logo-principal {
     display: flex;
     justify-content: center;
   }
-  header .logo-principal img {
+  #allBody .log_sign-header .logo-principal img {
     width: 60%;
   }
-  header .content-about {
+  #allBody .log_sign-header .content-about {
     border: 3px solid #fff;
     background-color: transparent;
     display: flex;
@@ -328,91 +323,100 @@ p span a:hover {
     padding: 0rem 1rem;
     height: 45px;
   }
-  header .content-about p {
+  #allBody .log_sign-header .content-about p {
     font-family: "Poppins", sans-serif;
     color: #fff;
     font-size: 0.9rem;
     margin: 0px;
   }
-  header .content-about:hover {
+  #allBody .log_sign-header .content-about:hover {
     background-color: #fff;
   }
-  header .content-about:hover p {
+  #allBody .log_sign-header .content-about:hover p {
     color: #883a24;
     font-weight: bolder;
   }
-  .all-contain {
+  #allBody .profile-header {
     display: flex;
-    padding: 2.3% 4% 0% 0%;
-    justify-content: flex-end;
-  }
-  .all-contain .sectionFather {
-    position: fixed;
-    margin-right: 0px;
-    margin-top: 0px;
-    width: 30%;
-    padding: 4% 0px 6.5%;
-    border: 0px;
-    border-radius: 50%;
-    background: linear-gradient(180deg, #b0492e 0.01%, #131313 0.02%, #cc5333 47.4%, #c85032 82.29%, #c28d7d 95.31%), #4bb1fb;
-  }
-  .all-contain .sectionFather .sectionSon {
-    text-align: center;
-    border: 0px;
-  }
-  .all-contain .sectionFather .sectionSon .container {
-    padding: 2rem 2rem 1.56rem;
-  }
-  .all-contain .sectionFather .sectionSon .container .item:nth-child(odd) {
-    height: 46px;
-  }
-  .all-contain .sectionFather .sectionSon .container .item:nth-child(even) {
-    height: 46px;
-  }
-  .all-contain .sectionFather .sectionSon .container .item img {
-    height: 36px;
-  }
-  .all-contain .sectionFather .sectionSon .sectionNetworks img {
-    width: 50px;
-    height: 50px;
-    margin-bottom: 23px;
-  }
-  .all-contain .sectionFather .sectionSon h1 {
-    display: flex;
-    margin: 0% auto 4%;
-    padding: 0px;
-    color: whitesmoke;
+    flex-direction: row;
+    flex-wrap: wrap;
+    flex-grow: 1;
+    align-items: center;
+    background-color: #883a24;
+    padding: 0.7rem 2rem 0.7rem 2rem;
     justify-content: center;
-    font-size: 210%;
-    font-family: "Roboto";
-    font-weight: bold;
   }
-  .all-contain .sectionFather .sectionSon .sectionSubTitle {
-    padding: 0px;
+  #allBody .profile-header .logo-principal {
+    display: flex;
+    justify-content: center;
   }
-  .all-contain .sectionFather .sectionSon .sectionSubTitle h2 {
-    font-size: 24px;
-    font-weight: lighter;
-    letter-spacing: 0px;
+  #allBody .profile-header .logo-principal img {
+    width: 60%;
   }
-  .all-contain .sectionFather .sectionSon .signIn {
+  #allBody .All-sections {
+    min-height: 87vh;
+  }
+  #allBody .All-sections .sectionFather .sectionSon {
+    padding: 4.5% 0% 6.5%;
+  }
+  #allBody .All-sections .sectionFather .sectionSon .logo-principalMobile {
     margin: 0px;
   }
-  .all-contain .sectionFather .sectionSon a {
-    font-size: 13px;
+  #allBody .All-sections .sectionFather .sectionSon .logo-principalMobile img {
+    display: none;
   }
-  .all-contain .circle-back {
-    content: "";
-    margin-top: 2%;
-    width: 32%;
-    height: 32rem;
-    position: fixed;
-    background: radial-gradient(50% 50% at 43.9% 53.82%, #6c4237 40.62%, #c03510 100%);
-    transform: rotate(-0.78deg);
+  #allBody .All-sections .sectionFather .sectionSon #circle1 {
+    width: 32vw;
+    height: 37vw;
+    top: 3%;
+    left: 62.5%;
+  }
+  #allBody .All-sections .sectionFather .sectionSon #circle2 {
+    width: 36vw;
+    height: 42vw;
     border-radius: 50%;
+    top: 2%;
+    right: 5%;
+  }
+  #allBody .All-sections .sectionFather .sectionSon #containerLogIn {
+    margin: 0% 67.6% 0%;
+    width: 22%;
+  }
+  #allBody .All-sections .sectionFather .sectionSon #containerLogIn h1 {
+    display: block;
+    margin: 0% 32% 6%;
+    padding: 0px;
+    font-size: 226%;
+    font-family: Roboto;
+    font-weight: bold;
+  }
+  #allBody .All-sections .sectionFather .sectionSon #containerLogIn .sectionSubTitle {
+    padding-bottom: 1rem;
+  }
+  #allBody .All-sections .sectionFather .sectionSon #containerLogIn .sectionSubTitle .LogIn {
+    font-size: 1.2rem;
+  }
+  #allBody .All-sections .sectionFather .sectionSon #containerLogIn .sectionSubTitle .SignUp {
+    font-size: 2rem;
+  }
+  #allBody .All-sections .sectionFather .sectionSon #containerLogIn .sectionSubTitle a {
+    font-size: 0.85rem;
+  }
+  #allBody .All-sections .sectionFather .sectionSon #containerLogIn .sectionNetworks img {
+    width: 50px;
+    height: 50px;
+  }
+  #allBody .All-sections .sectionFather .sectionSon #containerLogIn .container {
+    padding: 1rem 1rem 2rem;
+    width: 107%;
+  }
+  #allBody .All-sections .sectionFather .sectionSon #containerLogIn .signIn {
+    margin-top: 0px;
+  }
+  #allBody .All-sections .sectionFather .sectionSon #containerLogIn p {
+    color: whitesmoke;
   }
 }
-
 * {
   margin: 0;
   padding: 0;
@@ -423,3 +427,5 @@ body {
   width: 100%;
   font-family: "Poppins", sans-serif;
 }
+
+/*# sourceMappingURL=style.css.map */
