@@ -2,7 +2,23 @@
 /* eslint-disable semi */
 export default () => {
   const viewProfile = `
-  <section class="container-Publications-Profile">
+		<header class=profile-header>
+			<div class="logo-principal">
+				<img src="./assets/logo-limatopia.png" />
+			</div>
+		</header>
+		<section class="All-sections">
+			<section class="sectionFather">
+				<section class="sectionSon">
+					<div class="logo-principalMobile">
+						<img src="./assets/logo-limatopia.png" />
+					</div>
+					<a href="#/logIn"></a>
+					<section id="containerLogIn">
+					</section>
+				</section>
+			</section>
+    <section class="container-Publications-Profile">
       <section class="sectionProfile">
         <div class="coverPage"> portad</div>
         <div class="profilePicture">foto de Perfil</div>
@@ -14,7 +30,10 @@ export default () => {
         </div>
         <div class="stories"> Historia de publicaciones</div>
       </section>
-  </section> `;
+		</section>
+    <br>
+    <button class="logOut">Login out</button>
+		<footer></footer>`;
   const divElement = document.createElement("div");
   divElement.innerHTML = viewProfile;
   return divElement;
