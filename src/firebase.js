@@ -1,4 +1,3 @@
-// Objeto de credenciales
 const firebaseConfig = {
   apiKey: "AIzaSyAZi1Sk7_FpqO0dMwurK0lxAJP0qbpmsQM", // credencial para consultar la BD
   authDomain: "social-network-lima-topia.firebaseapp.com", // firebase autentifica
@@ -12,6 +11,6 @@ const firebaseConfig = {
 
 firebase.initializeApp(firebaseConfig);
 firebase.analytics();
-
 export const auth = firebase.auth();
 export const db = firebase.firestore();
+

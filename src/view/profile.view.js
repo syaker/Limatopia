@@ -1,5 +1,3 @@
-/* eslint-disable quotes */
-/* eslint-disable semi */
 export default () => {
   const viewProfile = `
 		<header class=profile-header>
@@ -8,6 +6,17 @@ export default () => {
 			</div>
 		</header>
 		<section class="All-sections">
+			<section class="sectionFather">
+				<section class="sectionSon">
+					<div class="logo-principalMobile">
+						<img src="./assets/logo-limatopia.png" />
+					</div>
+					<a href="#/logIn"></a>
+					<section id="containerLogIn">
+					</section>
+				</section>
+			</section>
+      <span class="displayUserName">Hola</span>
     <section class="container-Publications-Profile">
       <section class="sectionProfile">
         <div class="coverPage">
@@ -19,6 +28,10 @@ export default () => {
         </div>
       </section>
       <section class="sectionPublications" >
+        <div>
+          <input type="text" spellcheck="false">
+          <button class="publicar">publicar</button>
+// revisar
         <div class="containerNewPublications">
           <div class="commentary">¿Que quieres compartir?</div>
           <textarea name="newCommentary" id="textAreaComentary" class="textAreaPublication" placeholder="Escribe" autofocus></textarea>
@@ -26,6 +39,7 @@ export default () => {
             <img src="./assets/iconImage.png" alt="subirImagen" />
             <button class="btnToPost" id="btnShare"> Share </button>
           </div>
+
         </div>
         <section id="containerStories" class="stories">
           <a href="#/profile"></a>
