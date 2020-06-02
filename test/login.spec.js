@@ -13,11 +13,7 @@ global.firebase = firebasemock.MockFirebaseSdk(
   () => mockauth
 );
 //Importando funcion de registro para testear
-import {
-  authEmailPassword,
-  authFacebook,
-  authGmail,
-} from "../src/model/logIn.model.js";
+import { models } from "../src/model/logIn.model.js";
 
 describe("authEmailPassword", () => {
   it("Deberia poder ingresar con el email: hola@hola.es y el user: anonymous", () =>
@@ -28,7 +24,7 @@ describe("authEmailPassword", () => {
 
 describe("authGmail", () => {
   it("Deberia poder ingresar a mi cuenta con google", () => {
-    authGmail().then((obj) => {
+    models.logInModel.authGmail().then((obj) => {
       expect(obj._result.providerData[0].providerId).toBe(google.com);
     });
   });
@@ -36,9 +32,8 @@ describe("authGmail", () => {
 
 describe("authFacebook", () => {
   it("Deberia poder ingresar a mi cuenta con google", () => {
-    authFacebook().then((obj) => {
+    models.logInModel.authFacebook().then((obj) => {
       expect(obj._result.providerData[0].providerId).toBe(facebook.com);
     });
   });
 });
-
