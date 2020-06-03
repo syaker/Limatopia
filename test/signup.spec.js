@@ -13,11 +13,10 @@ global.firebase = firebasemock.MockFirebaseSdk(
   () => mockauth
 );
 //Importando funcion de registro para testear
-import { models } from "../src/model/index.model.js";
+import models from "../src/model/signUp.model.js";
 describe("signUpEmailPassword", () => {
   it("Debería poder registrarse con el email: hi@hola.com y password: misil123", () =>
-	signUpEmailPassword("hi@hola.com", "misil123")
-	  .then((obj) => {
+    models.signUpEmailPassword("hi@hola.com", "misil123").then((obj) => {
       expect(obj.email).toBe("hi@hola.com");
     }));
 });
