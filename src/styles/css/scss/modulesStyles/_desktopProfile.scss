@@ -4,13 +4,12 @@
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-color: none;
-    overflow-y: auto;
+    overflow-y: scroll;
   }
-
   header {
     position: fixed;
-	width: 100%;
-	z-index: 3;
+    width: 100%;
+    z-index: 3;
   }
   .All-sections {
     background-image: url("../../../../assets/fodoProfile.png");
@@ -18,7 +17,6 @@
     background-attachment: fixed;
     background-size: 100% 100%;
   }
-
   .container-Publications-Profile {
     display: flex;
     align-content: center;
@@ -62,9 +60,6 @@
         top: 0px;
         box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.25);
         border-radius: 12px;
-        .textAreaPublication {
-          background: white;
-        }
         .commentary {
           padding: 0px 1.5rem;
           border: 0px;
@@ -109,7 +104,6 @@
           }
         }
         .content {
-          height: 10rem;
           background: #fff6ef;
           margin: 1rem auto 0px;
           border-radius: 6px;

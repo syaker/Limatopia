@@ -5,6 +5,20 @@
   background-image: url("https://storage.googleapis.com/md-links/bg.png");
 }
 
+#idLoading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100vh;
+  background: rgba(43, 41, 41, 0.767);
+  position: fixed;
+  z-index: 100;
+}
+.clsLoadingHide {
+  display: none !important;
+}
+
 .container-Publications-Profile {
   display: flex;
   align-content: center;
@@ -28,7 +42,6 @@
       }
 
       a {
-
         .imgMenu {
           width: 30px;
           height: 30px;
@@ -40,7 +53,6 @@
           box-shadow: 0.625rem 0.625rem 1rem -0.0625rem rgba(0, 0, 0, 0.75);
         }
       }
-
 
       .imgMenu:hover {
         border: 1px solid rgb(224, 88, 64);
@@ -82,38 +94,35 @@
         text-transform: capitalize;
       }
     }
-
   }
 
   .sectionPublications {
     display: flex;
-    padding: 0.5rem;
+    justify-content: center;
     align-content: center;
     flex-direction: column;
-    justify-content: center;
+    padding: 0.5rem;
 
     .containerNewPublications {
       display: flex;
+      flex-direction: column;
       align-items: flex-end;
       margin-bottom: 0.5rem;
-      flex-direction: column;
-
       .commentary {
         width: 100%;
         height: 2.3rem;
-        background: #EAE2E2;
+        background: #eae2e2;
         border-radius: 10px 10px 0 0;
         border: solid 2px rgba(255, 253, 253, 0.664);
       }
-
       textarea {
         width: 100%;
         height: 5rem;
+        background: #fff6ef;
+        border: solid 2px rgba(255, 253, 253, 0.664);
         padding: 1rem;
-        background: #FFF6EF;
         text-transform: capitalize;
         font-family: $FFsecondary;
-        border: solid 0.125rem rgba(255, 253, 253, 0.664);
       }
 
       #textAreaComentary::-webkit-input-placeholder {
@@ -122,20 +131,65 @@
         font-family: $FFsecondary;
       }
 
+      #displayImage {
+        width: 100%;
+        background: #fff6ef;
+        padding: 0.5rem;
+        img {
+          max-width: 80px;
+          max-height: 80px;
+          background: #fff6ef;
+          cursor: pointer;
+        }
+      }
+
+      .clsDisplayImage {
+        display: none;
+      }
+
       .optionsToPost {
         width: 100%;
         display: flex;
-        padding: 0.2rem;
         align-items: center;
+        background: #fff6ef;
+        padding: 0.2rem;
         margin-bottom: 0.5rem;
-        background: #FFF6EF;
+        border-radius: 0 0 10px 10px;
         justify-content: space-between;
-        border-radius: 0 0 0.625rem 0.625rem;
 
-        img {
-          width: 30px;
-          height: 30px;
-          cursor: pointer;
+        .accionPublication {
+          width: 30%;
+          display: flex;
+          align-content: center;
+          padding: 0.5rem;
+          img {
+            width: 30px;
+            height: 30px;
+            cursor: pointer;
+          }
+
+          #addImg {
+            display: none;
+          }
+          .selectPublicPrivate {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            width: 80%;
+            border-radius: 30%;
+            border: solid 1px;
+            margin-left: 0.5rem;
+            option {
+              size: 5rem;
+              display: flex;
+              align-content: center;
+              background-color: coral;
+            }
+          }
+        }
+        .clsMessajePostEmpty {
+          color: rgb(94, 7, 7);
         }
 
         .btnToPost {
@@ -158,62 +212,102 @@
           background: linear-gradient(141deg, #c85032 33%, #ec9443 64%);
         }
       }
-
     }
 
     .stories {
       display: flex;
+      justify-content: center;
       align-content: center;
       flex-direction: column;
-      justify-content: center;
-      border-radius: $borderContent;
       background: rgba(234, 226, 226, 0.473);
-
+      border-radius: $borderContent;
       .authorPublication {
+        display: flex;
+        align-items: center;
         width: 100%;
         height: 3rem;
-        display: flex;
+        background: #eae2e2;
         padding: 0.5rem;
-        align-items: center;
-        background: #EAE2E2;
-        justify-content: space-between;
         border-radius: 0.625rem 0.625rem 0 0;
-
+        justify-content: space-between;
         .detailsAuthor {
           display: flex;
           align-items: center;
-
           img {
-            width: 2rem;
-            height: 2rem;
+            width: 3rem;
+            height: 3rem;
             border-radius: 50%;
             border: solid rgb(243, 234, 234);
           }
+          .dataProfile {
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+            padding: 0.5rem;
+            .contentDeatilsRegistration {
+              display: flex;
+              align-items: center;
+              p {
+                margin-top: 0;
+              }
+              img {
+                width: 1.5rem;
+                height: 1.5rem;
+              }
+            }
+          }
         }
-
-        .toogleMenu {
+        .clsToogleMenu {
           cursor: pointer;
+          ul {
+            li {
+              list-style: none;
+            }
+          }
+          .clsBtnOption {
+            display: none;
+          }
         }
       }
 
       .content {
+        display: flex;
+        align-items: center;
+        flex-direction: column;
         width: 90%;
-        height: 10rem;
+        background: #fff6ef;
         padding: 0.5rem;
         margin: 0.5rem auto;
-        background: #FFF6EF;
         border-radius: $borderContent;
+        p {
+          white-space: -moz-pre-wrap !important;  /* Mozilla, since 1999 */
+          white-space: -pre-wrap;      /* Opera 4-6 */
+          white-space: -o-pre-wrap;    /* Opera 7 */
+          white-space: pre-wrap;       /* css-3 */
+          word-wrap: break-word;       /* Internet Explorer 5.5+ */
+          white-space: -webkit-pre-wrap; /* Newer versions of Chrome/Safari*/
+          word-break: break-all;
+          white-space: normal;
+          margin-top: 0;
+        }
+        .clsImg {
+          display: none;
+        }
+        img {
+          max-width: 100%;
+        }
       }
 
       .interactions {
         width: 90%;
         height: 3rem;
+        background: #ffffff;
         display: flex;
-        margin: 0.5rem auto;
         align-items: center;
-        background: #FFFFFF;
         padding: 0 0.625rem 0 0.625rem;
         border-radius: 0 0 0.625rem 0.625rem;
+        border-radius: $borderContent;
+        margin: 0.5rem auto;
 
         img {
           width: 30px;
@@ -221,7 +315,6 @@
           cursor: pointer;
           padding: 0.1875rem;
           margin-left: 0.3125rem;
-
         }
       }
     }
