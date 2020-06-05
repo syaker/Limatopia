@@ -1,5 +1,5 @@
 import { views } from "../view/index.js";
-import { createNewPublication, getPublications, getStorageRef } from "../model/publication.model.js";
+import { models } from "../model/index.model.js";
 
 export default (viewProfile) => {
     const btnShare = viewProfile.querySelector('#btnShare');
@@ -8,6 +8,7 @@ export default (viewProfile) => {
     const displayImage = viewProfile.querySelector('#displayImage');
     const loadingPanel = viewProfile.querySelector('#idLoading');
     const messajePostEmpty = viewProfile.querySelector('#messajePostEmpty');
+    const user = models.profileModel.getCurrentNameUser();
 
     btnShare.addEventListener('click', () => {
         const textAreaComentary = viewProfile.querySelector('#textAreaComentary').value;
@@ -28,8 +29,8 @@ export default (viewProfile) => {
         
         if(imageViewer.files[0] === undefined)
         {
-            createNewPublication({
-                userId : 'IdLoginUserTODO',
+            models.publicationsModel.createNewPublication({
+                userId : user.uid,
                 content : textAreaComentary,
                 image: null,
                 privacyAction: optionPublicPrivate,
@@ -45,8 +46,8 @@ export default (viewProfile) => {
             });
         } else {
             uploadImageUrl().then((url) => {
-                createNewPublication({
-                    userId : 'IdLoginUserTODO',
+                models.publicationsModel.createNewPublication({
+                    userId : user.uid,
                     content : textAreaComentary,
                     image: url,
                     privacyAction: optionPublicPrivate,
@@ -69,7 +70,7 @@ export default (viewProfile) => {
     });
 
     const stories = viewProfile.querySelector('.stories');
-    const dataPublications = getPublications();
+    const dataPublications = models.publicationsModel.getPublications();
     loadingPanel.classList.remove('clsLoadingHide');
     dataPublications.onSnapshot((collectionPost) => {
         loadingPanel.classList.add('clsLoadingHide');
@@ -101,7 +102,7 @@ export default (viewProfile) => {
             const metadata = {
                 contentType : file.type
             };
-            const imageAdd = getStorageRef().child(name).put(file, metadata);
+            const imageAdd = models.publicationsModel.getStorageRef().child(name).put(file, metadata);
             imageAdd.then(snapshot => snapshot.ref.getDownloadURL())
                 .then((url) => {
                     resolve(url);
@@ -115,12 +116,6 @@ export default (viewProfile) => {
         imageViewer.click();
     });
     
-    // const btnOption = viewProfile.querySelector('#btnOption');
-    // btnOption.addEventListener('click', () => {
-    //     const editDelete = viewProfile.querySelector('#editDelete');
-    //     editDelete.classList.remove('clsBtnOption');
-    // });
-
 
     return viewProfile;
 }
