@@ -1,4 +1,4 @@
-import "../__mocks__/firebase.js";
+import "../mocks/mock.js";
 //Importando funcion de registro para testear
 import models from "../src/model/logIn.model.js";
 

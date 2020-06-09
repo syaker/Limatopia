@@ -1,6 +1,6 @@
-import "../__mocks__/firebase.js";
+import "../mocks/mock.js";
 //Importando funcion de registro para testear
-import models from "../src/model/signUp.model.js";
+import models from "../src/model/logIn.model.js";
 
 describe("signUpEmailPassword", () => {
   it("Debería poder registrarse con el email: hi@hola.com y password: misil123", () =>

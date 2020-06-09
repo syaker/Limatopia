@@ -5,18 +5,16 @@ import firebasemock from "firebase-mock";
 // se pueden encontrar todos los SDK de firebase en la documentacion de la libreria
 const mockauth = new firebasemock.MockAuthentication();
 const mockfirestore = new firebasemock.MockFirestore();
-// const mockstorage = new firebasemock.MockStorage();
-// const mocksfunction = new firebasemock.MockFirebaseSdk();
+const mockstorage = new firebasemock.MockStorage();
 //Esto es necesario para refrescar (los datos me imagino)
 mockauth.autoFlush();
 mockfirestore.autoFlush();
-// mockstorage.autoFlush();
-// mocksfunction.autoFlush();
+mockstorage.autoFlush();
 //Aqui reemplazamos mediante el objeto global a todos los objetos firebase por el mock
 global.firebase = firebasemock.MockFirebaseSdk(
+  // use null if your code does not use RTDB
   () => null,
   () => mockauth,
-  () => mockfirestore
-  // () => mockstorage
-  // () => mocksfunction
+  () => mockfirestore,
+  () => mockstorage
 );
