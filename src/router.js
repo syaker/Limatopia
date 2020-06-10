@@ -1,13 +1,11 @@
 import { auth } from "./firebase.js";
 import { controllers } from "./controllers/index.controller.js";
 
-const changeView = (route) => {
+const changeView = (path) => {
   const container = document.querySelector("#container");
-  container.innerHTML = "";
-  const routesWithoutAuth = ["#/login", "#/register"];
 
   let next;
-  switch (route) {
+  switch (path) {
     case "":
     case "#/logIn":
     case "#/": {
@@ -19,15 +17,15 @@ const changeView = (route) => {
       break;
     }
     case "#/profile": {
-      next = controllers.profileController();
-      const profileViewDOM = next;
-      const publicationProfileView = controllers.publicationController(
-        profileViewDOM
-      );
-      return container.appendChild(publicationProfileView);
+      next = controllers.profileController;
+      break;
     }
     case "#/recovery-pass": {
       next = controllers.recoveryPassController;
+      break;
+    }
+    case "#/user": {
+      next = controllers.user;
       break;
     }
     default: {
@@ -35,16 +33,23 @@ const changeView = (route) => {
     }
   }
 
-  // Midleware: Es una capa intermedia
+  // Midleware
+  const publicAllowedRoutes = [
+    "#/",
+    "#/signUp",
+    "#/recovery-pass",
+    "#/notFound",
+  ];
   auth.onAuthStateChanged((user) => {
-    const noAuthNedeed = routesWithoutAuth.find((route) => route === route);
+    const allowedRoute = publicAllowedRoutes.find((route) => route === path);
+    container.innerHTML = "";
     if (user) {
-      // if (noAuthNedeed) window.location.hash = "#/logIn";
       container.appendChild(next());
-    } else if (noAuthNedeed) {
+    } else if (allowedRoute) {
       container.appendChild(next());
     } else {
-      window.location.hash = "#/logIn";
+      window.location.hash = "#/";
+      container.appendChild(next());
     }
   });
 };

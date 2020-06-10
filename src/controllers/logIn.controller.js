@@ -1,14 +1,15 @@
 import { views } from "../view/index.js";
 import { models } from "../model/index.model.js";
+import { closeEye } from "../utils/eye.js";
 
 export default () => {
   const view = views.logIn();
-  const authEmailWithPassword = () => {
-    const email = view.querySelector("#email").value;
-    const password = view.querySelector("#password").value;
+  const email = view.querySelector("#email");
+  const password = view.querySelector("#password");
 
+  const authEmailWithPassword = () => {
     models.logInModel
-      .authEmailPassword(email, password)
+      .authEmailPassword(email.value, password.value)
       .then(() => (window.location.hash = "#/profile"))
       .catch((error) => {
         let message = "";
@@ -27,7 +28,6 @@ export default () => {
         );
       });
   };
-
   const btnLogIn = view.querySelector("#logIn");
   btnLogIn.addEventListener("click", authEmailWithPassword);
 
@@ -64,5 +64,16 @@ export default () => {
         const credential = error.credential;
       });
   });
+
+  //--------------------------------------- Eye de password
+
+  const eye = view.querySelector("#eye");
+  const imgEye = view.querySelector("#imgEye");
+  eye.addEventListener("click", (e) => {
+    e.stopPropagation();
+    e.preventDefault();
+    closeEye(password, imgEye);
+  });
+
   return view;
 };
