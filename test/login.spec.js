@@ -1,4 +1,4 @@
-import "../mocks/mock.js";
+import "../mock/mock.js";
 //Importando funcion de registro para testear
 import models from "../src/model/logIn.model.js";
 
