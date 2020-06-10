@@ -3,12 +3,23 @@ export default (post) => {
   const viewPublications = `
     <div class="authorPublication">
       <div class="detailsAuthor">
-        <img src="${post.data().userPhoto ? post.data().userPhoto : 'https://storage.googleapis.com/md-links/avatar.png'}" alt=""/>
+        <img src="${
+          post.userPhoto
+            ? post.userPhoto
+            : "https://storage.googleapis.com/md-links/avatar.png"
+        }" alt=""/>
         <div class="dataProfile">
-          <h3>${post.data().userName} </h3>
+          <h3>${post.userName} </h3>
             <div class="contentDeatilsRegistration">
-              <img src="${post.data().privacyAction === 'publico' ? './assets/public.png' : './assets/private.png'}" />
-              <p>${(post.data().registrationDate ? post.data().registrationDate.toDate() : new Date()).toLocaleString()}</p>
+              <img src="${
+                post.privacyAction === "publico"
+                  ? "./assets/public.png"
+                  : "./assets/private.png"
+              }" />
+              <p>${(post.registrationDate
+                ? post.registrationDate.toDate()
+                : new Date()
+              ).toLocaleString()}</p>
               <input type="text" class="idPublication" value="${post.id}">
               </div>
         </div>
@@ -23,20 +34,31 @@ export default (post) => {
     </div>
     <div class="content">
       <div>
-      <p class="currentContent">${post.data().content}</p>
+      <p class="currentContent">${post.content}</p>
       <div class="clsGuardarUpdate clsHide">
       <button class="btnGuardarUpdate">💾</button>
       </div>
       </div>
-      <img id="publishedImage" class="${typeof post.data().image !== 'undefined' && post.data().image !== null ? '' : 'clsImg'}" src="${typeof post.data().image !== 'undefined' && post.data().image !== null ? post.data().image : ''}" alt="imgShare" />
+      <img id="publishedImage" class="${
+        typeof post.image !== "undefined" && post.image !== null ? "" : "clsImg"
+      }" src="${
+    typeof post.image !== "undefined" && post.image !== null ? post.image : ""
+  }" alt="imgShare" />
     </div>
     <div class="interactions"> 
-      <img src="./assets/corazon.svg" class="hvr-pulse-grow" alt="meGusta" />
-      <img src="./assets/coment.png" class="hvr-grow-rotate" alt="comentarios" />
+      ${post.punctuation}<img id="heart" data-publication="${
+    post.id
+  }" class="hvr-pulse-grow" alt="meGusta" src="${
+    post.punctuation > 0 ? "./assets/fullHeart.png" : "./assets/corazon.svg"
+  }"/>
+      <img id="btnComment" src="./assets/coment.png" class="hvr-grow-rotate" alt="comentarios" />
+     <textarea id="textComment" cols="30" rows="2"></textarea>
+     <button id="sendComment" type="submit"><img src="./assets/send.png" alt="send"/> </button>
+     <div id="placeComments">${post.comment.content}</div>
     </div> `;
 
   const divElement = document.createElement("div");
-  divElement.classList.add('publication');
+  divElement.classList.add("publication");
   divElement.innerHTML = viewPublications;
   return divElement;
 };

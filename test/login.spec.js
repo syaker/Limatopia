@@ -1,31 +1,26 @@
-import { models } from "../src/model/index.model.js";
+import "../mocks/mock.js";
+//Importando funcion de registro para testear
+import models from "../src/model/logIn.model.js";
 
 describe("authEmailPassword", () => {
-  it("Debería poder ingresar con el email: hola@hola.es y el user: anonymous", () =>
-    models.logInModel
-      .authEmailPassword("hola@hola.es", "anonymous")
-      .then((obj) => expect(obj.email).toBe("hola@hola.es")));
+  it("Deberia poder ingresar con el email: hola@hola.es y el user: anonymous", () =>
+    models.authEmailPassword("hola@hola.es", "anonymous").then((obj) => {
+      expect(obj.email).toBe("hola@hola.es");
+    }));
 });
 
 describe("authGmail", () => {
-  it("Debería poder ingresar a mi cuenta con google", () => {
-    models.logInModel.authGmail().then((obj) => {
+  it("Deberia poder ingresar a mi cuenta con google", () => {
+    models.authGmail().then((obj) => {
       expect(obj._result.providerData[0].providerId).toBe(google.com);
     });
   });
 });
 
 describe("authFacebook", () => {
-  it("Debería poder ingresar a mi cuenta con google", () => {
-    models.logInModel.authFacebook().then((obj) => {
+  it("Deberia poder ingresar a mi cuenta con google", () => {
+    models.authFacebook().then((obj) => {
       expect(obj._result.providerData[0].providerId).toBe(facebook.com);
     });
   });
-});
-
-describe("signUpEmailPassword", () => {
-  it("Debería poder registrarse con el email: hi@hola.com y password: misil123", () =>
-    models.signUpModel
-      .signUpEmailPassword("hi@hola.com", "misil123")
-      .then((obj) => expect(obj.email).toBe("hi@hola.com")));
 });

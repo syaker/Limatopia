@@ -1,6 +1,3 @@
-/* eslint-disable no-tabs */
-/* eslint-disable quotes */
-/* eslint-disable semi */
 export default () => {
   const viewProfile = `
     <div id="idLoading" class="clsLoadingHide">

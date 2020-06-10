@@ -1,10 +1,8 @@
 import { auth } from "../firebase.js";
 
-const signOut = () => {
-  return auth.signOut();
-};
-// con este metodo cogere el ID real del usuario que servira para publciations y poder identificar quien comento tal o cual cosa
-const getCurrentNameUser = () => {
-  return auth.currentUser;
-};
+const signOut = () => auth.signOut();
+
+// Con este metodo tomamos el ID real del usuario que servira para publications, profile, user
+const getCurrentNameUser = () => auth.currentUser;
+
 export default { signOut, getCurrentNameUser };
