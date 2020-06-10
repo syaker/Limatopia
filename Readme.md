@@ -1,4 +1,6 @@
-# LIMA|topia Social Network
+<p align="center">
+  <img src="https://storage.googleapis.com/md-links/titleBig.png">
+</p>
 
 Bienvenida a Lima|topia...
 
