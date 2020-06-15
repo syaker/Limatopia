@@ -41,9 +41,9 @@ export default (viewProfile) => {
           privacyAction: optionPublicPrivate,
           punctuation: 0,
         })
-        .then(() => {
-          loadingPanel.classList.add("clsLoadingHide");
+        .then((e) => {
           viewProfile.querySelector("#textAreaComentary").value = "";
+          loadingPanel.classList.add("clsLoadingHide");
           imageViewer.value = "";
           imageViewer.dispatchEvent(new Event("change"));
         })

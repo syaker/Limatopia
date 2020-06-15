@@ -12,7 +12,7 @@ export default (post) => {
         <h3>${post.userName} </h3>
         <div class="contentDeatilsRegistration">
           <img src="${
-            post.privacyAction === " publico"
+            post.privacyAction === "publico"
               ? "./assets/public.png"
               : "./assets/private.png"
           }" />
