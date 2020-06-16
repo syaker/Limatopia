@@ -13,6 +13,19 @@ describe("createNewPublication", () => {
             'punctuation': 0,
         }).then((obj) => {
             expect(obj.id).toBeDefined()
-        }));
+        })
+    );
+})
+
+describe("Obtiene datos agregados", () => {
+    it("Deberia obtener una referencia a la coleccion de publicaciones", () =>
+        expect(models.publicationsModel.getPublications()).toBeDefined()
+    );
+})
+
+describe("Obtiene los datos de referencia al almacenamiento ", () => {
+    it("Deberia obtener la referencia de almacenamiento", () => 
+        expect(models.publicationsModel.getStorageRef()).toBeDefined()
+    );
 })
 
