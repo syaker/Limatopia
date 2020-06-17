@@ -140,40 +140,83 @@ export default (viewProfile) => {
         )
           return; //---------------------- Si las publicaciones son privadas NO SE PINTA EN LA INTERFAZ
 
-        const view = views.publications(postObj);
+        const view = views.publications(postObj, user);
         const placeComments = view.querySelector("#placeComments");
         const likesCount = view.querySelector("#likesCount");
         const heart = view.querySelector("#heart");
         const btnComment = view.querySelector("#btnComment"); // por usar para iniciar cursor
         const sendComment = view.querySelector("#sendComment");
         const textComment = view.querySelector("#textComment");
+        const totalComments = view.querySelector("#totalComments");
+        const commentImg = view.querySelector("#commentImg");
+        const commentImgPreview = view.querySelector('#commentImgPreview');
         const commentsView = views.comments;
 
+        // Seleccionar una imagen para subir como comentario
+        commentImg.addEventListener('change', e => {
+          // Objeto del navegador para leer cualquier archivo
+          const reader = new FileReader();
+          // cuando termine de cargar el archivo asignalo al src del elemento img 
+          reader.onload = (e) => {
+            commentImgPreview.src = e.target.result;
+          }
+          // esto ejecuta la lectura del archivo
+          reader.readAsDataURL(e.target.files[0]);
+        });
+
         //------------------------------------ Section de comentarios en publicationes
-        models.publicationsModel
-          .getComments(post.id)
-          .then((querysnapshot) => {
-            querysnapshot.forEach((doc) => {
-              placeComments.appendChild(commentsView(doc.data()));
-            });
-          })
-          .catch((err) => console.log(err));
+        // Esto para reutilizar la obtencion de comentarios. Vuelve a pintar los comentarios
+        const getComments = () => {
+          models.publicationsModel
+            .getComments(post.id)
+            .then((querysnapshot) => {
+              placeComments.innerHTML = "";
+              totalComments.innerHTML = querysnapshot.size;
+              querysnapshot.forEach((doc) => {
+                const comment = doc.data();
+                comment.id = doc.id;
+                placeComments.appendChild(commentsView(comment, user));
+              });
+
+              // Botones para eliminar el comentario
+              const btnsDeleteComment = placeComments.querySelectorAll(
+                ".deleteComment"
+              );
+
+              btnsDeleteComment.forEach((btn) => {
+                btn.addEventListener("click", (e) => {
+                  models.publicationsModel
+                    .deleteComment(e.target.dataset.idComment)
+                    .then(() => getComments())
+                    .catch((err) => console.error(err));
+                });
+              });
+            })
+            .catch((err) => console.log(err));
+        };
+
+        // Se ejecuta la funcion cada vez que que se refresca la pagina
+        getComments();
 
         sendComment.addEventListener("click", () => {
           const captureComment = textComment.value;
+         
           const newComment = {
             content: captureComment,
             username: user.displayName,
             userPhoto: user.photoURL,
             date: firebase.firestore.FieldValue.serverTimestamp(),
+            userId: user.uid,
+            postId: postObj.id,
           };
+
+          if (!newComment.content) return;
+
           models.publicationsModel
-            .addComment(postObj.id, newComment)
+            .addComment(newComment)
             .then(() => {
               textComment.value = "";
-              delete newComment.date;
-              const newPublication = views.comments(newComment);
-              placeComments.prepend(newPublication);
+              getComments();
             })
             .catch((err) => console.log(err));
         });
@@ -201,15 +244,11 @@ export default (viewProfile) => {
                 heart.src = "./assets/fullHeart.png";
               } else heart.src = "./assets/corazon.svg";
             })
-            .catch((err) => console.log(err));
+            .catch((err) => console.error(err));
         }
 
         // Likes incrementer
         heart.addEventListener("click", (e) => {
-          const newLike = {
-            user: user.uid,
-          };
-
           // si no tiene un like le agrega
           models.publicationsModel
             .getlike(postObj.id, user.uid)
@@ -217,19 +256,22 @@ export default (viewProfile) => {
               if (querysnapshot.docs.length > 0) {
                 querysnapshot.docs[0].ref.delete();
                 heart.src = "./assets/corazon.svg";
-                const currentLikeCount = parseInt(likesCount.innerHTML);
-                likesCount.innerHTML = currentLikeCount - 1;
+                const currentLikeCount = parseInt(likesCount.innerHTML || 0);
+                likesCount.innerHTML =
+                  currentLikeCount > 0 ? currentLikeCount - 1 : 0;
               } else {
                 models.publicationsModel
-                  .addLike(postObj.id, newLike)
+                  .addLike(postObj.id, user.uid)
                   .then(() => {
                     heart.src = "./assets/fullHeart.png";
-                    const currentLikeCount = parseInt(likesCount.innerHTML);
+                    const currentLikeCount = parseInt(
+                      likesCount.innerHTML || 0
+                    );
                     likesCount.innerHTML = currentLikeCount + 1;
                   });
               }
-            })
-            .catch((err) => console.log(err));
+            });
+          //   .catch((err) => console.log(err));
         });
         stories.appendChild(view);
       }
@@ -242,9 +284,9 @@ export default (viewProfile) => {
         const ulToogleMenu = menu
           .closest(".authorPublication")
           .querySelector(".ulToogleMenu");
-        if (ulToogleMenu.classList.contains("dropdown-menu") === true)
+        if (ulToogleMenu.classList.contains("dropdown-menu") === true) {
           ulToogleMenu.classList.remove("dropdown-menu");
-        else ulToogleMenu.classList.add("dropdown-menu");
+        } else ulToogleMenu.classList.add("dropdown-menu");
       });
     });
     eventDeletePublication();
