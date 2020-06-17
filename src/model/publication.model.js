@@ -76,22 +76,26 @@ const incrementPunctuation = (id) => {
   return publicationRef.update({ punctuation: increment });
 };
 
-const addComment = (idPublish, comment) => {
-  const publicationRef = db.collection("publications").doc(idPublish);
-  return publicationRef.collection("comments").add(comment);
-};
+const addComment = (comment) => db.collection("comments").add(comment);
 
-const addLike = (idPublish, user) => {
-  const publicationRef = db.collection("publications").doc(idPublish);
-  return publicationRef.collection("likes").add(user);
-};
+const getComments = (postId) =>
+  db
+    .collection("comments")
+    .where("postId", "==", postId)
+    // .orderBy("date")
+    .get();
 
-const getlike = (idPublish, userId) => {
+const deleteComment = (commentId) =>
+  db.collection("comments").doc(commentId).delete();
+
+const addLike = (postId, userId) =>
+  db.collection("likes").add({ userId, postId });
+
+const getlike = (postId, userId) => {
   return db
-    .collection("publications")
-    .doc(idPublish)
     .collection("likes")
-    .where("user", "==", userId)
+    .where("userId", "==", userId)
+    .where("postId", "==", postId)
     .get();
 };
 
@@ -103,22 +107,14 @@ const removeLike = (idPublish, userId) => {
     .delete();
 };
 
-const getComments = (postId) =>
-  db
-    .collection("publications")
-    .doc(postId)
-    .collection("comments")
-    .orderBy("date", "desc")
-    .get();
-
-const getTotalLikes = (postId) => {
-  return db.collection("publications").doc(postId).collection("likes").get();
-};
+const getTotalLikes = (postId) =>
+  db.collection("likes").where("postId", "==", postId).get();
 
 export default {
   getlike,
   addLike,
   addComment,
+  deleteComment,
   removeLike,
   getComments,
   getStorageRef,
