@@ -139,16 +139,20 @@
 
 .regresar {
 	width: 20vh;
-	outline: none;
-	cursor: pointer;
-	margin-top: 17px;
-	text-align: center;
-	color: whitesmoke;
-	border-radius: 1.5rem;
-	background: #ce5b359f;
-	font-family: "Poppins", sans-serif;
-	border: 0.625rem solid rgba(0, 0, 0, 0.336);
+    outline: none;
+    cursor: pointer;
+    margin-top: 17px;
+    text-align: center;
+    color: white;
+    border-radius: 1.5rem;
+    background: #f55626;
+    height: 3rem;
+    font-family: "Poppins", sans-serif;
+    font-weight: 700;
+    letter-spacing: 0.05rem;
+    border: 0rem solid rgba(0, 0, 0, 0.336);
 }
+
 
 #labelChng:hover {
 	color: #ce5c35;
@@ -161,9 +165,9 @@
 }
 
 .regresar:hover {
-	color: #f55626;
-	background: rgba(0, 0, 0, 0.733);
-	text-shadow: 0.125rem 0.125rem 0.5rem rgb(255, 116, 3);
+	color: #ff7403;
+    transition: 0.2s;
+    background: #454545;
 }
 
 .password2:hover,

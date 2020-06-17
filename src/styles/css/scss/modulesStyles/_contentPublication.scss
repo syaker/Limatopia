@@ -25,7 +25,7 @@
       background: #fff6ef;
       border: solid 2px rgba(255, 253, 253, 0.664);
       padding: 1rem;
-      font-family: $FFsecondary;
+      font-family: Poppins;
     }
 
     #textAreaComentary::-webkit-input-placeholder {
@@ -92,7 +92,7 @@
             size: 5rem;
             display: flex;
             align-content: center;
-            background-color: coral;
+            color: #454545;
             font-family: "Poppins";
 
             span {
@@ -114,13 +114,15 @@
         outline: none;
         cursor: pointer;
         padding: 0.3125rem;
-        color: $colorWhite;
+        color: white;
+        font-weight: 700;
+        letter-spacing: 0.05rem;
         text-align: center;
         border-radius: 3.4375rem;
         font-family: "Poppins";
-        border: 5px solid rgba(0, 0, 0, 0.322);
-        box-shadow: 0.625rem 0.625rem 1rem -0.0625rem rgba(0, 0, 0, 0.75);
-        background: linear-gradient(82.14deg, #494541 -3.88%, #c85032 64.89%);
+        border: 1px solid #c85032;
+        box-shadow: 0.05rem 0.325rem 0.7rem -0.0625rem #4545456b;
+        background: linear-gradient(83.14deg, #c85032 -3.88%, #c85033 64.89%);
       }
 
       .btnToPost:hover {
@@ -141,8 +143,8 @@
       display: flex;
       align-items: center;
       width: 100%;
-      height: 3.5rem;
-      background: #E6C486;
+      height: 4.2rem;
+      background: #e6c486;
       padding: 0.5rem;
       border-radius: 0.625rem 0.625rem 0 0;
       justify-content: space-between;
@@ -150,6 +152,17 @@
       .detailsAuthor {
         display: flex;
         align-items: center;
+
+        .clsToogleMenu {
+          span {
+            .fa,
+            .fas {
+              font-weight: 900;
+              height: 2rem;
+              width: 2rem;
+            }
+          }
+        }
 
         img {
           width: 3rem;
@@ -162,10 +175,11 @@
 
         .dataProfile {
           display: flex;
-
           flex-direction: column;
           padding: 0.5rem;
-
+          h3 {
+            font-size: 0.9rem;
+          }
           .contentDeatilsRegistration {
             display: flex;
             align-items: center;
@@ -174,6 +188,8 @@
               margin-top: 0;
               padding-left: 4px;
               padding-bottom: 3px;
+              font-size: 0.8rem;
+              color: #454545;
             }
 
             img {
@@ -226,6 +242,7 @@
       flex-direction: column;
       width: 90%;
       background: #fff6ef;
+      height: 18rem;
       padding: 0.5rem;
       margin: 0.5rem auto;
       border-radius: $borderContent;
@@ -262,7 +279,9 @@
       }
 
       img {
-        max-width: 100%;
+        width: 74%;
+        margin: 0 auto;
+        height: 90%;
       }
     }
 
@@ -283,7 +302,7 @@
         outline: none;
         cursor: pointer;
         padding: 0.1875rem;
-        margin-left: 0.3125rem;
+        margin: 0 0.4rem;
       }
 
       textarea {
@@ -292,6 +311,7 @@
         text-align: left;
         padding-top: 15px;
         margin-left: 2px;
+        width: 61%;
       }
 
       button {

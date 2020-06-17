@@ -26,7 +26,7 @@ export default () => {
     const name = view.querySelector("#name").value;
     models.signUpModel
       .signUpEmailPassword(email.value, password.value)
-      .then(() => models.signUpModel.updateDisplayName(name))
+      .then(() => models.user.updateDisplayName(name))
       .then(() => {
         messageResult.innerHTML = "Registro exitoso: redireccionando";
         setTimeout(() => (window.location.hash = "#/logIn"), 1000);

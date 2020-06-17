@@ -4,7 +4,6 @@
   background-size: cover;
   background-attachment: fixed;
 }
-
 #profile-container .profile-user-avatar .portada {
   width: 100vw;
   height: 200px;
@@ -13,7 +12,6 @@
   background-size: cover;
   justify-content: center;
 }
-
 #profile-container .profile-user-avatar .portada .user-img img {
   width: 200px;
   height: 200px;
@@ -24,20 +22,16 @@
   border: 0.9375rem solid rgba(22, 22, 22, 0.356);
   box-shadow: 0.625rem 0.625rem 1.125rem 0.0625rem rgba(0, 0, 0, 0.75);
 }
-
 #profile-container .profile-user-avatar .user-img-info {
   text-align: center;
   margin-top: 7.99rem;
 }
-
 #profile-container .profile-user-avatar .user-img-info progress#uploader {
   width: 100%;
 }
-
 #profile-container .profile-user-avatar .user-img-info progress {
   display: none;
 }
-
 #profile-container .profile-user-avatar .user-img-info #photoChng {
   margin-left: -190px;
   position: absolute;
@@ -46,7 +40,6 @@
   font-family: "Poppins", sans-serif;
   border: 0.4rem solid rgba(0, 0, 0, 0.336);
 }
-
 #profile-container .profile-user-avatar .user-img-info #labelChng {
   margin-right: -20px;
   background: rgba(24, 24, 24, 0.781);
@@ -55,7 +48,6 @@
   font-family: "Poppins", sans-serif;
   border: 0.4rem solid rgba(0, 0, 0, 0.336);
 }
-
 #profile-container #profile-info {
   padding: 30px;
   margin-top: 90px;
@@ -64,12 +56,10 @@
   background: rgba(0, 0, 0, 0.356);
   box-shadow: 0.625rem 0.625rem 1.125rem 0.0625rem rgba(0, 0, 0, 0.75);
 }
-
 #profile-container #profile-info .profile-form-group {
   display: flex;
   align-items: center;
 }
-
 #profile-container #profile-info .profile-form-group .profile-inputs input {
   height: 43px;
   width: 10rem;
@@ -84,16 +74,13 @@
   padding: 0.5625rem 0 0.4375rem 0.5rem;
   background: rgba(78, 77, 77, 0.267);
 }
-
 #profile-container #profile-info .profile-form-group .profile-inputs {
   display: inline-flex;
   margin: 0.4rem 1rem;
 }
-
 #profile-container #profile-info .profile-form-group .profile-inputs .inputName {
   margin-left: 1.875rem;
 }
-
 #profile-container #profile-info .profile-form-group .profile-inputs #editInputName,
 #profile-container #profile-info .profile-form-group .profile-inputs #editInputPass {
   height: 45px;
@@ -105,12 +92,10 @@
   margin-left: 7px;
   padding: 5px;
 }
-
 #profile-container #profile-info .profile-form-group .profile-inputs #editInputName:hover,
 #profile-container #profile-info .profile-form-group .profile-inputs #editInputPass:hover {
   background: #ce5b3573;
 }
-
 #profile-container #submit {
   width: 20vh;
   height: 8vh;
@@ -125,7 +110,6 @@
   border: 0.625rem solid rgba(0, 0, 0, 0.5);
   background: linear-gradient(82.14deg, #ec9443 -3.88%, #c85032 64.89%);
 }
-
 #profile-container #submit #submit:hover {
   color: whitesmoke;
   background: linear-gradient(141deg, #c85032 33%, #ec9443 64%);
@@ -137,11 +121,14 @@
   cursor: pointer;
   margin-top: 17px;
   text-align: center;
-  color: whitesmoke;
+  color: white;
   border-radius: 1.5rem;
-  background: #ce5b359f;
+  background: #f55626;
+  height: 3rem;
   font-family: "Poppins", sans-serif;
-  border: 0.625rem solid rgba(0, 0, 0, 0.336);
+  font-weight: 700;
+  letter-spacing: 0.05rem;
+  border: 0rem solid rgba(0, 0, 0, 0.336);
 }
 
 #labelChng:hover {
@@ -155,9 +142,9 @@
 }
 
 .regresar:hover {
-  color: #f55626;
-  background: rgba(0, 0, 0, 0.733);
-  text-shadow: 0.125rem 0.125rem 0.5rem #ff7403;
+  color: #ff7403;
+  transition: 0.2s;
+  background: #454545;
 }
 
 .password2:hover,
@@ -175,14 +162,14 @@ input[type=”file”]#changeBg {
   position: absolute;
 }
 
-label[for="changeBg"] {
+label[for=changeBg] {
   color: #fff;
   font-size: 14px;
   cursor: pointer;
   font-weight: 600;
   width: fit-content;
   text-align: center;
-  transition: all .5s;
+  transition: all 0.5s;
   display: inline-block;
   text-transform: uppercase;
   background-color: #106BA0;
@@ -198,14 +185,14 @@ input[type=”file”]#file {
   position: absolute;
 }
 
-label[for="file"] {
+label[for=file] {
   color: #fff;
   font-size: 14px;
   cursor: pointer;
   font-weight: 600;
   width: fit-content;
   text-align: center;
-  transition: all .5s;
+  transition: all 0.5s;
   display: inline-block;
   text-transform: uppercase;
   background-color: black;
@@ -234,14 +221,12 @@ h1 {
   justify-content: center;
   margin-bottom: 2.1875rem;
 }
-
 h1 img {
   width: 15px;
   height: 71px;
   margin: 0 0.3rem;
   font-family: "Roboto";
 }
-
 h1 img span {
   color: #e59041;
 }
@@ -252,7 +237,6 @@ h1 img span {
   padding-bottom: 2rem;
   justify-content: space-around;
 }
-
 .sectionSubTitle a {
   color: whitesmoke;
   font-size: 0.9375rem;
@@ -260,13 +244,11 @@ h1 img span {
   font-family: "Poppins", sans-serif;
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
-
 .sectionSubTitle a:hover {
   color: #ce5c35;
   font-weight: bolder;
   text-decoration: underline;
 }
-
 .sectionSubTitle h2 {
   color: whitesmoke;
   font-size: 1.875rem;
@@ -288,7 +270,6 @@ h1 img span {
   justify-content: center;
   padding: 2rem 1rem;
 }
-
 .container .item,
 .forgotPass .item {
   display: flex;
@@ -301,7 +282,6 @@ h1 img span {
   text-transform: uppercase;
   border: 0.0625rem solid whitesmoke;
 }
-
 .container .item img,
 .forgotPass .item img {
   margin: 0.4rem;
@@ -310,7 +290,6 @@ h1 img span {
   height: 40px;
   border-radius: 50%;
 }
-
 .container .item input,
 .forgotPass .item input {
   border: none;
@@ -372,7 +351,6 @@ h1 img span {
   display: flex;
   justify-content: center;
 }
-
 .sectionNetworks img {
   width: 60px;
   height: 60px;
@@ -381,7 +359,6 @@ h1 img span {
   margin: 1.25rem 1.25rem 1.875rem 1.25rem;
   box-shadow: 0.4375rem 1.5625rem 2rem -0.3125rem rgba(0, 0, 0, 0.38);
 }
-
 .sectionNetworks img:hover {
   padding: 0.625rem;
   border: transparent;
@@ -394,7 +371,6 @@ h1 img span {
   display: flex;
   justify-content: center;
 }
-
 .loginButton .loginButtonSon {
   height: 50px;
   width: 153px;
@@ -403,7 +379,6 @@ h1 img span {
   border-radius: 3.125rem;
   border: 0.625rem solid rgba(0, 0, 0, 0.15);
 }
-
 .loginButton button {
   width: 100%;
   height: 100%;
@@ -415,7 +390,6 @@ h1 img span {
   letter-spacing: 0.1875rem;
   background: linear-gradient(82.14deg, #ec9443 -3.88%, #c85032 64.89%);
 }
-
 .loginButton button:hover {
   background: linear-gradient(141deg, #c85032 33%, #ec9443 64%);
 }
@@ -459,9 +433,8 @@ h1 img span {
   background: transparent;
   border: none;
 }
-
 #eye #imgEye {
-  transition: all .3s ease-in-out;
+  transition: all 0.3s ease-in-out;
 }
 
 p {
@@ -473,7 +446,6 @@ p {
   font-family: "Poppins", sans-serif;
   color: rgba(32, 32, 32, 0.959);
 }
-
 p span a {
   font-size: 1rem;
   color: #ce5c35;
@@ -482,7 +454,6 @@ p span a {
   margin-left: 0.3125rem;
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
-
 p span a:hover {
   color: grey;
   font-weight: bolder;
@@ -496,7 +467,6 @@ p span a:hover {
   position: relative;
   padding: 9% 0% 26%;
 }
-
 .sectionSon #containerLogIn h1 {
   display: none;
 }
@@ -529,11 +499,9 @@ p span a:hover {
   color: white;
   text-align: center;
 }
-
 .forgotPass h1 {
   position: absolute;
 }
-
 .forgotPass button {
   width: 20vh;
   height: 100%;
@@ -547,23 +515,19 @@ p span a:hover {
   font-family: "Poppins", sans-serif;
   border: 0.625rem solid rgba(0, 0, 0, 0.336);
 }
-
 .forgotPass button:hover {
   background: linear-gradient(141deg, #c85032 33%, #ec9443 64%);
 }
-
 .forgotPass button:hover {
   color: yellow;
   background: linear-gradient(141deg, #c85032 33%, #ec9443 64%);
 }
-
 .forgotPass #forgotPass {
   height: 100vh;
   padding-top: 0px;
   border-radius: 0.9375rem;
   background: rgba(0, 0, 0, 0.5);
 }
-
 .forgotPass #forgotPass .key {
   height: 200px;
   position: absolute;
@@ -581,17 +545,14 @@ p span a:hover {
   background: rgba(244, 179, 126, 0.267);
   box-shadow: 3.3125rem 3.5625rem 3.125rem -1.4375rem rgba(0, 0, 0, 0.29);
 }
-
 .notFound h1 {
   text-shadow: 0.125rem 0.125rem 0.25rem #000000;
 }
-
 .notFound span {
   color: yellow;
   font-size: 6.25rem;
   text-shadow: 0.125rem 0.125rem 0.25rem #000000;
 }
-
 .notFound video {
   top: 50%;
   left: 50%;
@@ -605,12 +566,10 @@ p span a:hover {
   background-size: cover;
   transform: translateX(-50%) translateY(-50%);
 }
-
 .notFound p {
   color: white;
   font-weight: bolder;
 }
-
 .notFound button {
   width: 40vw;
   height: 50px;
@@ -622,7 +581,6 @@ p span a:hover {
   letter-spacing: 0.1875rem;
   background: linear-gradient(82.14deg, #ec9443 -3.88%, #c85032 64.89%);
 }
-
 .notFound button:hover {
   color: yellow;
   background: linear-gradient(141deg, #c85032 33%, #ec9443 64%);
@@ -736,7 +694,7 @@ p span a:hover {
     margin: 0% 32% 6%;
     padding: 0px;
     font-size: 226%;
-    font-family: Roboto;
+    font-family: Poppins;
     font-weight: bold;
   }
   #container div .All-sectionsb .sectionFather .sectionSon #containerLogIn .sectionSubTitle {
@@ -769,7 +727,6 @@ p span a:hover {
     text-shadow: 0.125rem 0.125rem 0.5rem white;
   }
 }
-
 #name,
 .textInput {
   text-transform: capitalize;
@@ -802,30 +759,25 @@ p span a:hover {
   flex-direction: column;
   justify-content: center;
 }
-
 .container-Publications-Profile .sectionProfile {
   border-radius: 11px;
-  background: rgba(234, 226, 226, 0.473);
+  background: #eae2e2;
 }
-
 .container-Publications-Profile .sectionProfile .coverPage {
   width: 100%;
   height: 10em;
   border-radius: 11px;
 }
-
 .container-Publications-Profile .sectionProfile .coverPage img {
   width: 100%;
   height: 100%;
   object-fit: cover;
   border-radius: 11px;
 }
-
 .container-Publications-Profile .sectionProfile .coverPage a {
   position: absolute;
   margin-left: -30px;
 }
-
 .container-Publications-Profile .sectionProfile .coverPage a .imgMenu {
   width: 30px;
   height: 30px;
@@ -834,12 +786,10 @@ p span a:hover {
   background: rgba(59, 58, 58, 0.575);
   box-shadow: 0.625rem 0.625rem 1rem -0.0625rem rgba(0, 0, 0, 0.75);
 }
-
 .container-Publications-Profile .sectionProfile .coverPage .imgMenu:hover {
   border: 1px solid #e05840;
   box-shadow: 0rem -0.0063rem 0.4375rem -0.0063rem #e74f08;
 }
-
 .container-Publications-Profile .sectionProfile .profilePicture {
   display: flex;
   align-items: center;
@@ -847,12 +797,10 @@ p span a:hover {
   flex-direction: column;
   justify-content: center;
 }
-
 .container-Publications-Profile .sectionProfile .profilePicture a {
   position: absolute;
   z-index: 100;
 }
-
 .container-Publications-Profile .sectionProfile .profilePicture #userPhoto {
   top: -4rem;
   width: 8rem;
@@ -863,11 +811,9 @@ p span a:hover {
   object-position: center;
   border: 0.9375rem solid rgba(126, 124, 124, 0.308);
 }
-
 .container-Publications-Profile .sectionProfile .profilePicture #userPhoto:hover {
   background: #ec954379;
 }
-
 .container-Publications-Profile .sectionProfile .profilePicture h5 {
   top: -3.5rem;
   position: relative;
@@ -915,17 +861,20 @@ p span a:hover {
     background-color: none;
     overflow-y: scroll;
   }
+
   header {
     position: fixed;
     width: 100%;
     z-index: 3;
   }
+
   .All-sections {
     background-image: url("../../../../assets/fodoProfile.png");
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-size: 100% 100%;
   }
+
   .container-Publications-Profile {
     display: flex;
     align-content: center;
@@ -936,7 +885,7 @@ p span a:hover {
   .container-Publications-Profile .sectionProfile {
     width: 39%;
     padding: 0%;
-    height: 20rem;
+    height: 21rem;
     flex-basis: auto;
     position: fixed;
     margin-top: 4rem;
@@ -976,7 +925,7 @@ p span a:hover {
     font-weight: 600;
     align-items: center;
     color: #606060;
-    font-family: Roboto;
+    font-family: Poppins;
   }
   .container-Publications-Profile .sectionPublications .containerNewPublications textarea {
     height: 7rem;
@@ -994,7 +943,7 @@ p span a:hover {
   }
   .container-Publications-Profile .sectionPublications .stories .authorPublication {
     margin-top: 1.5rem;
-    padding: 0 3rem 0 3rem;
+    padding: 0 3rem 0 1.4rem;
   }
   .container-Publications-Profile .sectionPublications .stories .authorPublication .detailsAuthor img {
     width: 3rem;
@@ -1013,7 +962,6 @@ p span a:hover {
     width: 97%;
   }
 }
-
 .hideComments {
   display: none;
 }
@@ -1024,7 +972,6 @@ p span a:hover {
   background: #EAE2E2;
   border-radius: 0.625rem;
 }
-
 #placeComments .publication {
   height: 60px;
   color: black;
@@ -1033,11 +980,9 @@ p span a:hover {
   min-height: fit-content;
   border-radius: 0 0.625rem;
 }
-
 #placeComments .publication #userComment {
   display: flex;
 }
-
 #placeComments .publication #userComment img {
   height: 2rem;
   width: 2rem;
@@ -1047,18 +992,15 @@ p span a:hover {
   margin-left: 4px;
   margin-top: -2.1875rem;
 }
-
 #placeComments .publication #userComment h3 {
   font-size: 0.8125rem;
   margin: -1.875rem 0 0 0.125rem;
 }
-
 #placeComments .publication #userComment span {
   font-size: 0.5rem;
   margin-top: -1.4375rem;
   margin-left: 0.8125rem;
 }
-
 #placeComments .publication #userComment #dott {
   width: 1.5rem;
   padding: 0.3125rem;
@@ -1072,14 +1014,12 @@ p span a:hover {
   flex-direction: column;
   padding: 0.5rem;
 }
-
 .sectionPublications .containerNewPublications {
   display: flex;
   flex-direction: column;
   align-items: flex-end;
   margin-bottom: 0.5rem;
 }
-
 .sectionPublications .containerNewPublications .commentary {
   width: 100%;
   height: 2.3rem;
@@ -1087,39 +1027,33 @@ p span a:hover {
   border-radius: 10px 10px 0 0;
   border: solid 2px rgba(255, 253, 253, 0.664);
 }
-
 .sectionPublications .containerNewPublications textarea {
   width: 100%;
   height: 5rem;
   background: #fff6ef;
   border: solid 2px rgba(255, 253, 253, 0.664);
   padding: 1rem;
-  font-family: "Poppins", sans-serif;
+  font-family: Poppins;
 }
-
 .sectionPublications .containerNewPublications #textAreaComentary::-webkit-input-placeholder {
   color: gray;
   font-size: 1em;
   font-family: "Poppins", sans-serif;
 }
-
 .sectionPublications .containerNewPublications #displayImage {
   width: 100%;
   background: #fff6ef;
   padding: 0.5rem;
 }
-
 .sectionPublications .containerNewPublications #displayImage img {
   max-width: 80px;
   max-height: 80px;
   background: #fff6ef;
   cursor: pointer;
 }
-
 .sectionPublications .containerNewPublications .clsDisplayImage {
   display: none;
 }
-
 .sectionPublications .containerNewPublications .optionsToPost {
   width: 100%;
   display: flex;
@@ -1130,24 +1064,20 @@ p span a:hover {
   border-radius: 0 0 10px 10px;
   justify-content: space-between;
 }
-
 .sectionPublications .containerNewPublications .optionsToPost .accionPublication {
   width: 45%;
   display: flex;
   align-content: center;
   padding: 0.5rem;
 }
-
 .sectionPublications .containerNewPublications .optionsToPost .accionPublication img {
   width: 30px;
   height: 30px;
   cursor: pointer;
 }
-
 .sectionPublications .containerNewPublications .optionsToPost .accionPublication #addImg {
   display: none;
 }
-
 .sectionPublications .containerNewPublications .optionsToPost .accionPublication .selectPublicPrivate {
   display: flex;
   align-items: center;
@@ -1159,24 +1089,20 @@ p span a:hover {
   outline: none;
   background-color: #fff6ef;
 }
-
 .sectionPublications .containerNewPublications .optionsToPost .accionPublication .selectPublicPrivate option {
   size: 5rem;
   display: flex;
   align-content: center;
-  background-color: coral;
+  color: #454545;
   font-family: "Poppins";
 }
-
 .sectionPublications .containerNewPublications .optionsToPost .accionPublication .selectPublicPrivate option span {
   padding: 20px;
   height: 20px;
 }
-
 .sectionPublications .containerNewPublications .optionsToPost .clsMessajePostEmpty {
   color: #5e0707;
 }
-
 .sectionPublications .containerNewPublications .optionsToPost .btnToPost {
   width: 30%;
   height: 100%;
@@ -1184,19 +1110,19 @@ p span a:hover {
   outline: none;
   cursor: pointer;
   padding: 0.3125rem;
-  color: whitesmoke;
+  color: white;
+  font-weight: 700;
+  letter-spacing: 0.05rem;
   text-align: center;
   border-radius: 3.4375rem;
   font-family: "Poppins";
-  border: 5px solid rgba(0, 0, 0, 0.322);
-  box-shadow: 0.625rem 0.625rem 1rem -0.0625rem rgba(0, 0, 0, 0.75);
-  background: linear-gradient(82.14deg, #494541 -3.88%, #c85032 64.89%);
+  border: 1px solid #c85032;
+  box-shadow: 0.05rem 0.325rem 0.7rem -0.0625rem #4545456b;
+  background: linear-gradient(83.14deg, #c85032 -3.88%, #c85033 64.89%);
 }
-
 .sectionPublications .containerNewPublications .optionsToPost .btnToPost:hover {
   background: linear-gradient(141deg, #c85032 33%, #ec9443 64%);
 }
-
 .sectionPublications .stories {
   display: flex;
   justify-content: center;
@@ -1205,23 +1131,26 @@ p span a:hover {
   background: rgba(234, 226, 226, 0.473);
   border-radius: 11px;
 }
-
 .sectionPublications .stories .authorPublication {
   display: flex;
   align-items: center;
   width: 100%;
-  height: 3.5rem;
-  background: #E6C486;
+  height: 4.2rem;
+  background: #e6c486;
   padding: 0.5rem;
   border-radius: 0.625rem 0.625rem 0 0;
   justify-content: space-between;
 }
-
 .sectionPublications .stories .authorPublication .detailsAuthor {
   display: flex;
   align-items: center;
 }
-
+.sectionPublications .stories .authorPublication .detailsAuthor .clsToogleMenu span .fa,
+.sectionPublications .stories .authorPublication .detailsAuthor .clsToogleMenu span .fas {
+  font-weight: 900;
+  height: 2rem;
+  width: 2rem;
+}
 .sectionPublications .stories .authorPublication .detailsAuthor img {
   width: 3rem;
   height: 3rem;
@@ -1230,24 +1159,25 @@ p span a:hover {
   border: solid #f3eaea;
   border: 0.3rem solid rgba(126, 124, 124, 0.308);
 }
-
 .sectionPublications .stories .authorPublication .detailsAuthor .dataProfile {
   display: flex;
   flex-direction: column;
   padding: 0.5rem;
 }
-
+.sectionPublications .stories .authorPublication .detailsAuthor .dataProfile h3 {
+  font-size: 0.9rem;
+}
 .sectionPublications .stories .authorPublication .detailsAuthor .dataProfile .contentDeatilsRegistration {
   display: flex;
   align-items: center;
 }
-
 .sectionPublications .stories .authorPublication .detailsAuthor .dataProfile .contentDeatilsRegistration p {
   margin-top: 0;
   padding-left: 4px;
   padding-bottom: 3px;
+  font-size: 0.8rem;
+  color: #454545;
 }
-
 .sectionPublications .stories .authorPublication .detailsAuthor .dataProfile .contentDeatilsRegistration img {
   border: none;
   width: 1.3rem;
@@ -1255,19 +1185,15 @@ p span a:hover {
   padding: 0 0 2px;
   object-fit: contain;
 }
-
 .sectionPublications .stories .authorPublication .detailsAuthor .dataProfile .contentDeatilsRegistration .idPublication {
   display: none;
 }
-
 .sectionPublications .stories .authorPublication .clsToogleMenu {
   cursor: pointer;
 }
-
 .sectionPublications .stories .authorPublication .clsToogleMenu .dropdown-menu {
   display: none;
 }
-
 .sectionPublications .stories .authorPublication .clsToogleMenu ul {
   position: absolute;
   z-index: 100;
@@ -1276,29 +1202,25 @@ p span a:hover {
   margin-left: -60px;
   border-radius: 11px;
 }
-
 .sectionPublications .stories .authorPublication .clsToogleMenu ul li {
   list-style: none;
 }
-
 .sectionPublications .stories .authorPublication .clsToogleMenu ul li:hover {
   color: #c85032;
 }
-
 .sectionPublications .stories .authorPublication .clsToogleMenu .clsBtnOption {
   display: none;
 }
-
 .sectionPublications .stories .content {
   display: flex;
   flex-direction: column;
   width: 90%;
   background: #fff6ef;
+  height: 18rem;
   padding: 0.5rem;
   margin: 0.5rem auto;
   border-radius: 11px;
 }
-
 .sectionPublications .stories .content p {
   display: block;
   white-space: -moz-pre-wrap !important;
@@ -1311,29 +1233,25 @@ p span a:hover {
   white-space: normal;
   margin-top: 0;
 }
-
 .sectionPublications .stories .content .clsGuardarUpdate {
   display: flex;
   justify-content: flex-end;
   padding-bottom: 1rem;
 }
-
 .sectionPublications .stories .content .clsGuardarUpdate .btnGuardarUpdate {
   border: none;
 }
-
 .sectionPublications .stories .content .clsHide {
   display: none;
 }
-
 .sectionPublications .stories .content .clsImg {
   display: none;
 }
-
 .sectionPublications .stories .content img {
-  max-width: 100%;
+  width: 74%;
+  margin: 0 auto;
+  height: 90%;
 }
-
 .sectionPublications .stories .interactions {
   width: 90%;
   height: 3rem;
@@ -1345,24 +1263,22 @@ p span a:hover {
   border-radius: 11px;
   margin: 0.5rem auto;
 }
-
 .sectionPublications .stories .interactions img {
   width: 30px;
   height: 30px;
   outline: none;
   cursor: pointer;
   padding: 0.1875rem;
-  margin-left: 0.3125rem;
+  margin: 0 0.4rem;
 }
-
 .sectionPublications .stories .interactions textarea {
   border: none;
   outline: none;
   text-align: left;
   padding-top: 15px;
   margin-left: 2px;
+  width: 61%;
 }
-
 .sectionPublications .stories .interactions button {
   border: none;
   display: flex;
@@ -1376,14 +1292,12 @@ p span a:hover {
     transform: scale(1.1);
   }
 }
-
 @keyframes hvr-pulse-grow {
   to {
     -webkit-transform: scale(1.1);
     transform: scale(1.1);
   }
 }
-
 .hvr-pulse-grow {
   display: inline-block;
   vertical-align: middle;
@@ -1469,3 +1383,5 @@ body {
   border-radius: 0.375rem;
   background: linear-gradient(rgba(204, 199, 199, 0.37), #ce5b3580);
 }
+
+/*# sourceMappingURL=style.css.map */
