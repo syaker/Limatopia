@@ -1,5 +1,4 @@
-/* eslint-disable quotes */
-export default (post) => {
+export default (post, user) => {
   const viewPublications = `
    <div class="authorPublication">
     <div class="detailsAuthor">
@@ -24,13 +23,17 @@ export default (post) => {
         </div>
       </div>
     </div>
-    <div class="clsToogleMenu clsViewToogle">
+    ${
+      post.userId === user.uid
+        ? `<div class="clsToogleMenu">
       <span class="menuEdit hvr-bounce-in" id="btnOption"><i class="fa fa-ellipsis-v"></i></span>
       <ul class="ulToogleMenu dropdown-menu">
         <li class="updatePublication"><i class="fa fa-pencil fa-fw"></i> Edit</li>
         <li class="deletePublication"><i class="fa fa-trash-o fa-fw"></i> Delete</li>
       </ul>
-    </div>
+    </div>`
+        : " "
+    }
   </div>
   <div class="content">
     <div>
@@ -49,9 +52,17 @@ export default (post) => {
   <span id="likesCount"></span><img id="heart" data-publication="${
     post.id
   }" class="hvr-pulse-grow" alt="meGusta" src="./assets/corazon.svg" />
-    <img id="btnComment" src="./assets/coment.png" class="hvr-grow-rotate" alt="comentarios" />
+    <span id="totalComments"></span> <img id="btnComment" src="./assets/coment.png" class="hvr-grow-rotate" alt="comentarios" />
+
+    <label for="commentImg">
+      <img id="iconCamera" class="hvr-bounce-in" src="./assets/commentImage.png" alt="subirImagen" style="width: 50px; height: 50px" />
+    </label>
+    <input type="file" id="commentImg" accept="image/*" style="display:none;">
+    <img id="commentImgPreview" src="" alt=""/>
+
     <textarea id="textComment" cols="30" rows="2" spellcheck="false"></textarea>
     <button id="sendComment" type="submit"><img src="./assets/send.png" alt="send" /></button>
+
   </div>
   <div id="placeComments"></div>`;
   const divElement = document.createElement("div");
