@@ -70,6 +70,26 @@ export default (viewProfile) => {
     }
   });
 
+   // ---------------------------------- Llamada en linea 52, comentando con img
+   const uploadImageUrl = () =>
+   new Promise((resolve, reject) => {
+     const file = viewProfile.querySelector("#addImg").files[0];
+     const name = `${+new Date()}- ${file.name}`;
+     const metadata = {
+       contentType: file.type,
+     };
+     const imageAdd = models.publicationsModel
+       .getStorageRef()
+       .child(name)
+       .put(file, metadata);
+     imageAdd
+       .then((snapshot) => snapshot.ref.getDownloadURL())
+       .then((url) => resolve(url))
+       .catch((err) => reject(err));
+   });
+
+  iconCamera.addEventListener("click", () => imageViewer.click());
+
   // -- onsnaopshot : cuando hayan cambios ejecuta lo que esta dentro
   // -- querysnapshot : un objeto que te da firebase para poder obtener los datos de las consultas en el then de una promesa
   // --------------------------------------- Funciones edit y eliminar (ejecutadas, linea 199 y 200) en funcion onsnapshot linea 152
@@ -148,6 +168,12 @@ export default (viewProfile) => {
         const sendComment = view.querySelector("#sendComment");
         const textComment = view.querySelector("#textComment");
         const commentsView = views.comments;
+        const clsToogleMenu = view.querySelector('.clsToogleMenu');
+
+        if(user.uid === postObj.userId ){
+          console.log(clsToogleMenu);
+          clsToogleMenu.classList.remove('clsViewToogle');
+        }
 
         //------------------------------------ Section de comentarios en publicationes
         models.publicationsModel
@@ -263,25 +289,5 @@ export default (viewProfile) => {
       reader.readAsDataURL(imageViewer.files[0]);
     } else displayImage.classList.add("clsDisplayImage");
   });
-
-  // ---------------------------------- Llamada en linea 52, comentando con img
-  const uploadImageUrl = () =>
-    new Promise((resolve, reject) => {
-      const file = viewProfile.querySelector("#addImg").files[0];
-      const name = `${+new Date()}- ${file.name}`;
-      const metadata = {
-        contentType: file.type,
-      };
-      const imageAdd = models.publicationsModel
-        .getStorageRef()
-        .child(name)
-        .put(file, metadata);
-      imageAdd
-        .then((snapshot) => snapshot.ref.getDownloadURL())
-        .then((url) => resolve(url))
-        .catch((err) => reject(err));
-    });
-
-  iconCamera.addEventListener("click", () => imageViewer.click());
   return viewProfile;
 };

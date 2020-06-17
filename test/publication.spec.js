@@ -29,3 +29,35 @@ describe("Obtiene los datos de referencia al almacenamiento ", () => {
     );
 })
 
+describe("Actualiza el nombre en la publicacion", () => {
+    it("Deberia acualizar el nuevo nombre del usuario en la coleccion de publicacion", () => 
+        expect(models.publicationsModel.updateNamePublication('J0jQyTMuutQnP08w3qe2wZVkmox1', 'Gloria')).toBe(true)
+    );
+})
+
+describe("Actualiza la foto en la publicacion", () => {
+    it("Deberia actualizar la foto de perfil del usuario en la coleccion de publicacion", () => 
+        expect(models.publicationsModel.updatePhotoPublication('J0jQyTMuutQnP08w3qe2wZVkmox1', 'http://test.com//newImg.jpg'))
+        .toBe(true)
+    );
+})
+
+describe("Elimina un post", () => {
+    it("Deberia eliminar un post publicado", () => 
+        expect(models.publicationsModel.deletePublication('J0jQyTMuutQnP08w3qe2wZVkmox1')).toBe(true)
+    );
+})
+
+describe("Actualiza un post", () => {
+    it("Deberia actualizar el contenido de una publicacion", () => 
+        expect(models.publicationsModel.updatePublication('J0jQyTMuutQnP08w3qe2wZVkmox1', 'Estamos probando la actualizacion del test'))
+        .toBe(true)
+    );
+})
+
+// describe("Incrementa la puntuacion", () => {
+//     it("Deberia incrementar la puntuacion de likes de la publciacion", () => 
+//         expect(models.publicationsModel.incrementPunctuation)
+//     )
+// })
+

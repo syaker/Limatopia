@@ -7,12 +7,12 @@ const updateDisplayName = (name) =>
   });
 
 const updatePhotoUser = (file) =>
-  storageRef.child("photoUpload/" + file.name).put(file);
+  storageRef.ref().child("photoUpload/" + file.name).put(file);
 
 const updatePhotoBg = (file) => {
   const extension = file.name.substr(file.name.lastIndexOf("."));
   const newName = generateRandomString() + extension;
-  return storageRef.child("bgUpload/" + newName).put(file);
+  return storageRef.ref().child("bgUpload/" + newName).put(file);
 };
 
 const saveBackgroundUser = (user, imgURL) =>

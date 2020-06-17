@@ -24,7 +24,7 @@ export default (post) => {
         </div>
       </div>
     </div>
-    <div class="clsToogleMenu">
+    <div class="clsToogleMenu clsViewToogle">
       <span class="menuEdit hvr-bounce-in" id="btnOption"><i class="fa fa-ellipsis-v"></i></span>
       <ul class="ulToogleMenu dropdown-menu">
         <li class="updatePublication"><i class="fa fa-pencil fa-fw"></i> Edit</li>

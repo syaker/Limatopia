@@ -701,6 +701,27 @@ p span a:hover {
   #container div .profile-header .logo-principal img {
     width: 60%;
   }
+  #container div .profile-header .btnLogOut {
+    position: absolute;
+    width: 8%;
+    height: 40%;
+    cursor: pointer;
+    right: 5px;
+    top: 25px;
+    border: 3px solid #fff;
+    background-color: transparent;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    padding: 0rem 1rem;
+    height: 45px;
+  }
+  #container div .profile-header .btnLogOut p {
+    font-family: "Poppins", sans-serif;
+    color: #fff;
+    font-size: 0.9rem;
+    margin: 0px;
+  }
   #container div .All-sectionsb {
     min-height: 87vh;
     background-image: url("https://storage.googleapis.com/md-links/capital-back.png");
@@ -1284,6 +1305,10 @@ p span a:hover {
 }
 
 .sectionPublications .stories .authorPublication .clsToogleMenu .clsBtnOption {
+  display: none;
+}
+
+.sectionPublications .stories .authorPublication .clsViewToogle {
   display: none;
 }
 

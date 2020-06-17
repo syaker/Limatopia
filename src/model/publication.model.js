@@ -20,7 +20,7 @@ const createNewPublication = (objectReceived) =>
 const getPublications = () =>
   db.collection("publications").orderBy("registrationDate", "desc");
 
-const getStorageRef = () => storageRef;
+const getStorageRef = () => storageRef.ref();
 
 const updateNamePublication = (idUser, newName) => {
   const query = db.collection("publications").where("userId", "==", idUser);
@@ -35,6 +35,7 @@ const updateNamePublication = (idUser, newName) => {
         .catch((err) => console.log(err));
     });
   });
+  return true;
 };
 
 const updatePhotoPublication = (idUser, newPhoto) => {
@@ -50,6 +51,7 @@ const updatePhotoPublication = (idUser, newPhoto) => {
         .catch((error) => console.log(error));
     });
   });
+  return true;
 };
 
 const deletePublication = (idPublication) => {
@@ -58,16 +60,17 @@ const deletePublication = (idPublication) => {
     .delete()
     .then(() => console.log("Document successfully deleted!"))
     .catch((err) => console.error("Error removing document: ", err));
+  return true;
 };
 
 const updatePublication = (idPublication, newContent) => {
   const publication = db.collection("publications").doc(idPublication);
-  return publication
-    .update({
+  publication.update({
       content: newContent,
     })
     .then(() => console.log("Document successfully updated!"))
     .catch((err) => console.error("Error updating document: ", err));
+  return true;
 };
 
 const incrementPunctuation = (id) => {
