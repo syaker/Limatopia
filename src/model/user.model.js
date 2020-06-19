@@ -7,7 +7,7 @@ const updateDisplayName = (name) =>
   });
 
 const updatePhotoUser = (file) =>
-  storageRef.ref().child("photoUpload/" + file.name).put(file);
+  storageRef.child("photoUpload/" + file.name).put(file);
 
 // La func generateRandomString(genera un string aleatorio) en caso subamos una foto por ejm,
 // con nombre foto.png y otro usuario sube otra img pero con el mismo nombre, habria conflicto
@@ -15,7 +15,7 @@ const updatePhotoUser = (file) =>
 const updatePhotoBg = (file) => {
   const extension = file.name.substr(file.name.lastIndexOf("."));
   const newName = generateRandomString() + extension;
-  return storageRef.ref().child("bgUpload/" + newName).put(file);
+  return storageRef.child("bgUpload/" + newName).put(file);
 };
 
 const saveBackgroundUser = (user, imgURL) =>

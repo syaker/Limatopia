@@ -55,9 +55,30 @@ describe("Actualiza un post", () => {
     );
 })
 
-// describe("Incrementa la puntuacion", () => {
-//     it("Deberia incrementar la puntuacion de likes de la publciacion", () => 
-//         expect(models.publicationsModel.incrementPunctuation)
-//     )
-// })
+describe("Creacion de un nuevo cmentario", () => {
+    it("Deberia crear una nueva publicacion", () => 
+        models.publicationsModel.addComment('EStamos probando los comentarios de los test')
+        .then((obj) => {
+            expect(obj.id).toBeDefined();
+        })
+    );
+})
+
+describe("Obtiene los comentarios de un post", () => {
+    it ("Deberia obtener una referencia a la coleccion de comentarios", () => 
+       models.publicationsModel.getComments('6gxnEVZhVnE1897vH0i0')
+       .then((obj) => {
+           expect(obj).toBeDefined()
+       })
+    );
+})
+
+describe("Elimina un comentario de un post", () => {
+    it("Deberia eliminar un comentario en un post", () => 
+        models.publicationsModel.deleteComment('6gxnEVZhVnE1897vH0i0')
+        .then((obj) => {
+            expect(obj).toBe(null);
+        })
+    );
+})
 
