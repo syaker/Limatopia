@@ -38,9 +38,9 @@ export default (viewProfile) => {
           privacyAction: optionPublicPrivate,
           punctuation: 0,
         })
-        .then(() => {
+        .then((e) => {
+          viewProfile.querySelector("#textAreaComentary").value = "";
           loadingPanel.classList.add("clsLoadingHide");
-          viewProfile.querySelector("#textAreaComentary").value = ""; // limpia el content
           imageViewer.value = "";
           imageViewer.dispatchEvent(new Event("change"));
         })
@@ -68,6 +68,26 @@ export default (viewProfile) => {
         .catch(() => loadingPanel.classList.add("clsLoadingHide"));
     }
   });
+
+   // ---------------------------------- Llamada en linea 52, comentando con img
+   const uploadImageUrl = () =>
+   new Promise((resolve, reject) => {
+     const file = viewProfile.querySelector("#addImg").files[0];
+     const name = `${+new Date()}- ${file.name}`;
+     const metadata = {
+       contentType: file.type,
+     };
+     const imageAdd = models.publicationsModel
+       .getStorageRef()
+       .child(name)
+       .put(file, metadata);
+     imageAdd
+       .then((snapshot) => snapshot.ref.getDownloadURL())
+       .then((url) => resolve(url))
+       .catch((err) => reject(err));
+   });
+
+  iconCamera.addEventListener("click", () => imageViewer.click());
 
   // -- onsnaopshot : cuando hayan cambios ejecuta lo que esta dentro
   // -- querysnapshot : un objeto que te da firebase para poder obtener los datos de las consultas en el then de una promesa
@@ -323,25 +343,5 @@ export default (viewProfile) => {
       reader.readAsDataURL(imageViewer.files[0]);
     } else displayImage.classList.add("clsDisplayImage");
   });
-
-  // ---------------------------------- Llamada en linea 52, comentando con img
-  const uploadImageUrl = () =>
-    new Promise((resolve, reject) => {
-      const file = viewProfile.querySelector("#addImg").files[0];
-      const name = `${+new Date()}- ${file.name}`;
-      const metadata = {
-        contentType: file.type,
-      };
-      const imageAdd = models.publicationsModel
-        .getStorageRef()
-        .child(name)
-        .put(file, metadata);
-      imageAdd
-        .then((snapshot) => snapshot.ref.getDownloadURL())
-        .then((url) => resolve(url))
-        .catch((err) => reject(err));
-    });
-
-  iconCamera.addEventListener("click", () => imageViewer.click());
   return viewProfile;
 };

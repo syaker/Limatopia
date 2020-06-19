@@ -35,6 +35,7 @@ const updateNamePublication = (userId, newName) => {
         .catch((err) => console.log(err));
     });
   });
+  return true;
 };
 
 const updatePhotoPublication = (idUser, newPhoto) => {
@@ -50,6 +51,7 @@ const updatePhotoPublication = (idUser, newPhoto) => {
         .catch((error) => console.log(error));
     });
   });
+  return true;
 };
 
 const deletePublication = (idPublication) => {
@@ -58,22 +60,17 @@ const deletePublication = (idPublication) => {
     .delete()
     .then(() => console.log("Document successfully deleted!"))
     .catch((err) => console.error("Error removing document: ", err));
+  return true;
 };
 
 const updatePublication = (idPublication, newContent) => {
   const publication = db.collection("publications").doc(idPublication);
-  return publication
-    .update({
+  publication.update({
       content: newContent,
     })
     .then(() => console.log("Document successfully updated!"))
     .catch((err) => console.error("Error updating document: ", err));
-};
-
-const incrementPunctuation = (id) => {
-  const publicationRef = db.collection("publications").doc(id);
-  const increment = firebase.firestore.FieldValue.increment(1);
-  return publicationRef.update({ punctuation: increment });
+  return true;
 };
 
 const addComment = (comment) => db.collection("comments").add(comment);
@@ -113,7 +110,6 @@ export default {
   updatePublication,
   deletePublication,
   uploadCommentImage,
-  incrementPunctuation,
   createNewPublication,
   updateNamePublication,
   updatePhotoPublication,
