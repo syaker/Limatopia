@@ -14,8 +14,8 @@
     "test": "jest --coverage",
     "start": "serve -l 5000 -C",
     "start-sass": "concurrently \"npm:sass-watch\" \"npm:start\"",
-    "sass-build": "node-sass --output-style content styles/css/scss/style.scss styles/css/style.css",
-    "sass-watch": "node-sass --watch --output-style expanded styles/css/scss/style.scss styles/css/style.css"
+    "sass-build": "node-sass --output-style content src/styles/css/scss/style.scss src/styles/css/style.css",
+    "sass-watch": "node-sass --watch --output-style compressed src/styles/css/scss/style.scss src/styles/css/style.css"
   },
   "devDependencies": {
     "@babel/core": "^7.2.2",
