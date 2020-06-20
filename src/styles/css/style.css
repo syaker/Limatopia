@@ -1,9 +1,9 @@
 @charset "UTF-8";
 #profile-container {
-  flex-flow: column;
+  min-height: 100vh;
+  overflow: visible;
   background-size: cover;
   background-attachment: fixed;
-  height: -webkit-fill-available;
   background-image: url("https://storage.googleapis.com/md-links/bg.png");
 }
 
@@ -28,8 +28,10 @@
 }
 
 #profile-container .profile-user-avatar .user-img-info {
+  display: flex;
   text-align: center;
   margin-top: 7.99rem;
+  justify-content: center;
 }
 
 #profile-container .profile-user-avatar .user-img-info progress#uploader {
@@ -41,28 +43,29 @@
 }
 
 #profile-container .profile-user-avatar .user-img-info #photoChng {
-  margin-left: -190px;
-  position: absolute;
-  background: #ce5b359f;
+  margin: 0 0.5rem;
   border-radius: 1.5rem;
+  background: #ce5b359f;
+  padding: 15px 20px !important;
   font-family: "Poppins", sans-serif;
-  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
   border: 0.4rem solid rgba(0, 0, 0, 0.336);
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
 
 #profile-container .profile-user-avatar .user-img-info #labelChng {
-  margin-right: -20px;
-  background: rgba(24, 24, 24, 0.781);
-  position: absolute;
+  margin: 0 0.5rem;
   border-radius: 1.5rem;
+  padding: 15px 20px !important;
   font-family: "Poppins", sans-serif;
-  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  background: rgba(24, 24, 24, 0.781);
   border: 0.4rem solid rgba(0, 0, 0, 0.336);
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
 
 #profile-container #profile-info {
+  width: min-content;
   padding: 30px;
-  margin-top: 90px;
+  margin-top: 20px;
   color: whitesmoke;
   border-radius: 15px;
   background: rgba(0, 0, 0, 0.356);
@@ -71,7 +74,7 @@
 
 #profile-container #profile-info .profile-form-group {
   display: flex;
-  align-items: center;
+  flex-direction: column;
 }
 
 #profile-container #profile-info .profile-form-group .profile-inputs input {
@@ -90,12 +93,9 @@
 }
 
 #profile-container #profile-info .profile-form-group .profile-inputs {
-  display: inline-flex;
+  color: orange;
   margin: 0.4rem 1rem;
-}
-
-#profile-container #profile-info .profile-form-group .profile-inputs .inputName {
-  margin-left: 1.875rem;
+  display: inline-flex;
 }
 
 #profile-container #profile-info .profile-form-group .profile-inputs #editInputName,
@@ -114,6 +114,10 @@
 #profile-container #profile-info .profile-form-group .profile-inputs #editInputName:hover,
 #profile-container #profile-info .profile-form-group .profile-inputs #editInputPass:hover {
   background: #ce5b3573;
+}
+
+#profile-container .signIn {
+  color: darkslategrey;
 }
 
 #profile-container #submit {
@@ -141,12 +145,13 @@ a {
 }
 
 a .regresar {
-  width: 20vh;
-  height: 8.5vh;
   outline: none;
+  font-size: 18px;
   cursor: pointer;
-  margin-top: 17px;
+  margin-top: 7px;
+  padding: 10px 20px;
   text-align: center;
+  font-weight: bolder;
   color: whitesmoke;
   border-radius: 1.5rem;
   background: #ce5b359f;
@@ -196,8 +201,6 @@ label[for="changeBg"] {
   transition: all .5s;
   display: inline-block;
   text-transform: uppercase;
-  background-color: #106BA0;
-  padding: 15px 40px !important;
 }
 
 input[type=”file”]#file {
@@ -219,8 +222,6 @@ label[for="file"] {
   transition: all .5s;
   display: inline-block;
   text-transform: uppercase;
-  background-color: black;
-  padding: 15px 40px !important;
 }
 
 header {
@@ -241,7 +242,7 @@ h1 {
   display: flex;
   color: whitesmoke;
   padding-top: 2.5rem;
-  font-size: 3.4375rem;
+  font-size: 2rem;
   justify-content: center;
   margin-bottom: 2.1875rem;
 }
@@ -370,11 +371,11 @@ h1 img span {
 
 .signIn {
   display: flex;
-  color: orange;
-  font-size: 0.9375rem;
-  margin-top: 1.125rem;
+  color: whitesmoke;
+  font-size: 1rem;
+  margin-top: 2rem;
   justify-content: center;
-  letter-spacing: 0.1875rem;
+  font-weight: bolder;
   font-family: "Poppins", sans-serif;
 }
 
@@ -481,7 +482,7 @@ p {
   font-weight: bolder;
   justify-content: center;
   font-family: "Poppins", sans-serif;
-  color: rgba(32, 32, 32, 0.959);
+  color: black;
 }
 
 p span a {
@@ -519,7 +520,7 @@ p span a:hover {
   left: -40%;
   z-index: -5;
   border-radius: 50%;
-  background-image: linear-gradient(180deg, rgba(19, 19, 19, 0.8) 19.79%, rgba(204, 83, 51, 0.8) 53.13%, rgba(200, 80, 50, 0.8) 82.29%, rgba(194, 141, 125, 0.8) 100%), url("/assets/burbuja.png");
+  background-image: linear-gradient(180deg, rgba(19, 19, 19, 0.8) 19.79%, rgba(204, 83, 51, 0.8) 53.13%, rgba(200, 80, 50, 0.8) 82.29%, rgba(194, 141, 125, 0.8) 100%), url("https://storage.googleapis.com/md-links/burbuja.png");
   background-size: contain;
 }
 
@@ -535,35 +536,57 @@ p span a:hover {
 }
 
 .forgotPass {
+  width: 100%;
+  display: flex;
+  overflow: hidden;
+  align-items: center;
+  flex-direction: column;
+  padding: 1rem;
   height: 99.9vh;
   color: white;
   text-align: center;
 }
 
-.forgotPass h1 {
-  position: absolute;
+.forgotPass video {
+  height: 48%;
 }
 
-.forgotPass button {
-  width: 20vh;
-  height: 100%;
+.forgotPass h1 {
+  position: absolute;
+  font-size: 23px;
+}
+
+.forgotPass .item:nth-child(odd) {
+  border-radius: 0 3rem 3rem 0;
+  margin-left: 0;
+  border-left: 0.0625rem solid transparent;
+}
+
+.forgotPass .item:nth-child(odd) input {
+  margin-left: 15px;
+}
+
+.forgotPass .sendEmail {
+  width: 143px;
   outline: none;
+  font-size: 18px;
   cursor: pointer;
-  margin-top: 17px;
+  padding: 10px 20px;
   text-align: center;
+  font-weight: bolder;
   color: whitesmoke;
   border-radius: 1.5rem;
   background: #ce5b359f;
   font-family: "Poppins", sans-serif;
-  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
   border: 0.625rem solid rgba(0, 0, 0, 0.336);
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
 
-.forgotPass button:hover {
+.forgotPass .sendEmail:hover {
   background: linear-gradient(141deg, #c85032 33%, #ec9443 64%);
 }
 
-.forgotPass button:hover {
+.forgotPass .sendEmail:hover {
   color: yellow;
   background: linear-gradient(141deg, #c85032 33%, #ec9443 64%);
 }
@@ -576,8 +599,8 @@ p span a:hover {
 }
 
 .forgotPass #forgotPass .key {
-  top: 250px;
-  height: 200px;
+  top: 100px;
+  height: 150px;
   position: absolute;
   border-radius: 50%;
   box-shadow: 3.3125rem 3.5625rem 3.125rem -1.4375rem rgba(0, 0, 0, 0.29);
@@ -712,27 +735,6 @@ p span a:hover {
   #container div .profile-header .logo-principal img {
     width: 60%;
   }
-  #container div .profile-header .btnLogOut {
-    position: absolute;
-    width: 8%;
-    height: 40%;
-    cursor: pointer;
-    right: 5px;
-    top: 25px;
-    border: 3px solid #fff;
-    background-color: transparent;
-    display: flex;
-    align-items: center;
-    text-align: center;
-    padding: 0rem 1rem;
-    height: 45px;
-  }
-  #container div .profile-header .btnLogOut p {
-    font-family: "Poppins", sans-serif;
-    color: #fff;
-    font-size: 0.9rem;
-    margin: 0px;
-  }
   #container div .All-sectionsb {
     min-height: 87vh;
     background-image: url("https://storage.googleapis.com/md-links/capital-back.png");
@@ -770,7 +772,7 @@ p span a:hover {
     display: block;
     margin: 0% 32% 6%;
     padding: 0px;
-    font-size: 226%;
+    font-size: 28.5px;
     font-family: 'Poppins';
     font-weight: bold;
   }
@@ -801,7 +803,6 @@ p span a:hover {
     color: black;
     font-weight: bolder;
     font-size: 15px;
-    text-shadow: 0.125rem 0.125rem 0.5rem white;
   }
 }
 
@@ -962,7 +963,7 @@ p span a:hover {
     z-index: 3;
   }
   .All-sections {
-    background-image: url("../../../../assets/fodoProfile.png");
+    background-image: url("https://storage.googleapis.com/md-links/fodoProfile.png");
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-size: 100% 100%;
@@ -1093,30 +1094,29 @@ p span a:hover {
 }
 
 #placeComments .publication #userComment img {
-  height: 2rem;
-  width: 2rem;
+  width: 1.5rem;
+  height: 1.5rem;
   object-fit: cover;
   border-radius: 50%;
-  margin-right: 2px;
-  margin-left: 4px;
-  margin-top: -2.1875rem;
+  margin: -2.1875rem 2px 0 1px;
+  border: 0.15rem solid rgba(126, 124, 124, 0.308);
 }
 
 #placeComments .publication #userComment h3 {
-  font-size: 0.8125rem;
+  font-size: 0.65rem;
   margin: -1.875rem 0 0 0.125rem;
 }
 
 #placeComments .publication #userComment span {
-  font-size: 0.5rem;
-  margin-top: -1.4375rem;
-  margin-left: 0.8125rem;
+  font-size: 0.35rem;
+  margin-top: -1.6rem;
+  margin-left: 0.4rem;
 }
 
 #placeComments .publication #userComment #dott {
   width: 1.5rem;
   padding: 0.3125rem;
-  margin: -38px 0 0.1875rem 50%;
+  margin: -31px 0.1875rem 0.1875rem 27%;
 }
 
 #placeComments .publication div {
@@ -1124,6 +1124,7 @@ p span a:hover {
   padding-left: 15px;
   border-radius: 0 35px;
   background: white;
+  font-size: 11px;
 }
 
 #placeComments .publication div img {
@@ -1150,6 +1151,7 @@ p span a:hover {
 .sectionPublications .containerNewPublications .commentary {
   width: 100%;
   height: 2.3rem;
+  padding-left: 3px;
   background: #eae2e2;
   border-radius: 10px 10px 0 0;
   border: solid 2px rgba(255, 253, 253, 0.664);
@@ -1218,14 +1220,14 @@ p span a:hover {
 }
 
 .sectionPublications .containerNewPublications .optionsToPost .accionPublication .selectPublicPrivate {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  width: 60%;
   border: none;
-  margin-left: 0.5rem;
   outline: none;
+  display: flex;
+  font-size: 10px;
+  text-align: center;
+  align-items: center;
+  margin-left: 0.5rem;
+  justify-content: center;
   background-color: #fff6ef;
 }
 
@@ -1247,20 +1249,18 @@ p span a:hover {
 }
 
 .sectionPublications .containerNewPublications .optionsToPost .btnToPost {
-  width: 30%;
   height: 100%;
   border: none;
   outline: none;
-  cursor: pointer;
-  padding: 0.3125rem;
-  color: whitesmoke;
+  font-size: 12px;
+  padding: 3px 15px;
   text-align: center;
+  width: min-content;
+  color: whitesmoke;
   border-radius: 3.4375rem;
-  font-family: "Poppins";
-  border: 5px solid rgba(0, 0, 0, 0.322);
+  font-family: "Poppins", sans-serif;
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-  box-shadow: 0.625rem 0.625rem 1rem -0.0625rem rgba(0, 0, 0, 0.75);
-  background: linear-gradient(82.14deg, #494541 -3.88%, #c85032 64.89%);
+  background: linear-gradient(82.14deg, #ec9443 -3.88%, #c85032 64.89%);
 }
 
 .sectionPublications .containerNewPublications .optionsToPost .btnToPost:hover {
@@ -1303,8 +1303,12 @@ p span a:hover {
 
 .sectionPublications .stories .authorPublication .detailsAuthor .dataProfile {
   display: flex;
-  flex-direction: column;
   padding: 0.5rem;
+  flex-direction: column;
+}
+
+.sectionPublications .stories .authorPublication .detailsAuthor .dataProfile h3 {
+  font-size: 0.8rem;
 }
 
 .sectionPublications .stories .authorPublication .detailsAuthor .dataProfile .contentDeatilsRegistration {
@@ -1316,6 +1320,7 @@ p span a:hover {
   margin-top: 0;
   padding-left: 4px;
   padding-bottom: 3px;
+  font-size: 0.7rem;
 }
 
 .sectionPublications .stories .authorPublication .detailsAuthor .dataProfile .contentDeatilsRegistration img {
@@ -1361,10 +1366,6 @@ p span a:hover {
   display: none;
 }
 
-.sectionPublications .stories .authorPublication .clsViewToogle {
-  display: none;
-}
-
 .sectionPublications .stories .content {
   display: flex;
   flex-direction: column;
@@ -1386,6 +1387,8 @@ p span a:hover {
   word-break: break-all;
   white-space: normal;
   margin-top: 0;
+  font-size: 12px;
+  font-weight: normal;
 }
 
 .sectionPublications .stories .content .clsGuardarUpdate {
@@ -1430,7 +1433,6 @@ p span a:hover {
   outline: none;
   cursor: pointer;
   padding: 0.1875rem;
-  margin-left: 0.3125rem;
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
 
@@ -1541,7 +1543,7 @@ body {
 /* Scroll Bar */
 ::-webkit-scroll,
 ::-webkit-scrollbar {
-  width: 0.3125rem;
+  width: 8px;
   background-color: rgba(233, 223, 223, 0.151);
 }
 
