@@ -7,7 +7,7 @@ export default (comment, user) => {
   }" alt="user" />
     <h3>${comment.username ? comment.username : " "}
     </h3><span>${(comment.date
-      ? comment.date.toDate()
+      ? comment.date
       : new Date()
     ).toLocaleString()}</span>
       ${
@@ -16,7 +16,7 @@ export default (comment, user) => {
           : ""
       }
   </div>
-  <div style="margin-top: 15px">
+  <div>
     <div>${comment.content} </div>
     <img src="${
       comment.imageURL ? comment.imageURL : ""

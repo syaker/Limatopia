@@ -38,9 +38,9 @@ export default (viewProfile) => {
           privacyAction: optionPublicPrivate,
           punctuation: 0,
         })
-        .then((e) => {
-          viewProfile.querySelector("#textAreaComentary").value = "";
+        .then(() => {
           loadingPanel.classList.add("clsLoadingHide");
+          viewProfile.querySelector("#textAreaComentary").value = ""; // limpia el content
           imageViewer.value = "";
           imageViewer.dispatchEvent(new Event("change"));
         })
@@ -68,26 +68,6 @@ export default (viewProfile) => {
         .catch(() => loadingPanel.classList.add("clsLoadingHide"));
     }
   });
-
-   // ---------------------------------- Llamada en linea 52, comentando con img
-   const uploadImageUrl = () =>
-   new Promise((resolve, reject) => {
-     const file = viewProfile.querySelector("#addImg").files[0];
-     const name = `${+new Date()}- ${file.name}`;
-     const metadata = {
-       contentType: file.type,
-     };
-     const imageAdd = models.publicationsModel
-       .getStorageRef()
-       .child(name)
-       .put(file, metadata);
-     imageAdd
-       .then((snapshot) => snapshot.ref.getDownloadURL())
-       .then((url) => resolve(url))
-       .catch((err) => reject(err));
-   });
-
-  iconCamera.addEventListener("click", () => imageViewer.click());
 
   // -- onsnaopshot : cuando hayan cambios ejecuta lo que esta dentro
   // -- querysnapshot : un objeto que te da firebase para poder obtener los datos de las consultas en el then de una promesa
@@ -161,6 +141,9 @@ export default (viewProfile) => {
         )
           return; //---------------------- Si las publicaciones son privadas NO SE PINTA EN LA INTERFAZ
 
+        postObj.registrationDate = timeago.format(
+          postObj.registrationDate.toDate()
+        );
         const view = views.publications(postObj, user);
         const placeComments = view.querySelector("#placeComments");
         const likesCount = view.querySelector("#likesCount");
@@ -170,7 +153,7 @@ export default (viewProfile) => {
         const textComment = view.querySelector("#textComment");
         const totalComments = view.querySelector("#totalComments");
         const commentImg = view.querySelector("#commentImg");
-        const commentImgPreview = view.querySelector("#commentImgPreview");
+        const imgPreview = view.querySelector("#commentImgPreview");
         const commentsView = views.comments;
 
         // Seleccionar una imagen para subir como comentario
@@ -179,7 +162,7 @@ export default (viewProfile) => {
           const reader = new FileReader();
           // cuando termine de cargar el archivo asignarlo al src del elemento img
           reader.onload = (e) => {
-            commentImgPreview.src = e.target.result;
+            imgPreview.src = e.target.result;
           };
           // esto ejecuta la lectura del archivo
           reader.readAsDataURL(e.target.files[0]);
@@ -195,6 +178,7 @@ export default (viewProfile) => {
               totalComments.innerHTML = querysnapshot.size;
               querysnapshot.forEach((doc) => {
                 const comment = doc.data();
+                comment.date = timeago.format(comment.date.toDate());
                 comment.id = doc.id;
                 placeComments.appendChild(commentsView(comment, user));
               });
@@ -216,7 +200,7 @@ export default (viewProfile) => {
             .catch((err) => console.error(err));
         };
 
-        sendComment.addEventListener("click", () => {
+        sendComment.addEventListener("click", (e) => {
           const captureComment = textComment.value;
 
           const newComment = {
@@ -343,5 +327,25 @@ export default (viewProfile) => {
       reader.readAsDataURL(imageViewer.files[0]);
     } else displayImage.classList.add("clsDisplayImage");
   });
+
+  // ---------------------------------- Llamada en linea 52, comentando con img
+  const uploadImageUrl = () =>
+    new Promise((resolve, reject) => {
+      const file = viewProfile.querySelector("#addImg").files[0];
+      const name = `${+new Date()}- ${file.name}`;
+      const metadata = {
+        contentType: file.type,
+      };
+      const imageAdd = models.publicationsModel
+        .getStorageRef()
+        .child(name)
+        .put(file, metadata);
+      imageAdd
+        .then((snapshot) => snapshot.ref.getDownloadURL())
+        .then((url) => resolve(url))
+        .catch((err) => reject(err));
+    });
+
+  iconCamera.addEventListener("click", () => imageViewer.click());
   return viewProfile;
 };
