@@ -138,8 +138,8 @@
                 display: block;
                 margin: 0% 32% 6%;
                 padding: 0px;
-                font-size: 226%;
-                font-family: Roboto;
+                font-size: 28.5px;
+                font-family: 'Poppins';
                 font-weight: bold;
               }
 
@@ -179,7 +179,10 @@
                 color: black;
                 font-weight: bolder;
                 font-size: 15px;
-                text-shadow: 0.125rem 0.125rem 0.5rem rgb(255, 255, 255);
+
+                span a {
+                  color: white;
+                }
               }
             }
           }

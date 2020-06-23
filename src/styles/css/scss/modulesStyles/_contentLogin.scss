@@ -18,7 +18,7 @@ h1 {
   display: flex;
   color: $colorWhite;
   padding-top: 2.5rem;
-  font-size: 3.4375rem;
+  font-size: 2rem;
   justify-content: center;
   margin-bottom: 2.1875rem;
 
@@ -75,8 +75,7 @@ h1 {
   overflow: hidden;
   align-items: center;
   flex-direction: column;
-  justify-content: center;
-  padding: 2rem 1rem;
+  padding: 2rem 1rem 0;
 
   .item {
     display: flex;
@@ -85,7 +84,7 @@ h1 {
     color: $colorWhite;
     position: relative;
     align-items: center;
-    margin-top: -0.1062rem;
+    margin-top: -0.08rem;
     text-transform: uppercase;
     border: 0.0625rem solid $colorWhite;
 
@@ -150,11 +149,11 @@ h1 {
 // ------------------------ TEXTO antes DE GOOGLE Y FB
 .signIn {
   display: flex;
-  color: orange;
-  font-size: 0.9375rem;
-  margin-top: 1.125rem;
+  color: whitesmoke;
+  font-size: 1rem;
+  margin-top: 2rem;
   justify-content: center;
-  letter-spacing: 0.1875rem;
+  font-weight: bolder;
   font-family: $FFsecondary;
 }
 
@@ -269,7 +268,7 @@ p {
   font-weight: bolder;
   justify-content: center;
   font-family: $FFsecondary;
-  color: rgba(32, 32, 32, 0.959);
+  color: black;
 
   span a {
     font-size: 1rem;
@@ -314,7 +313,7 @@ p {
       rgba(204, 83, 51, 0.8) 53.13%,
       rgba(200, 80, 50, 0.8) 82.29%,
       rgba(194, 141, 125, 0.8) 100%),
-    url("/assets/burbuja.png");
+    url("https://storage.googleapis.com/md-links/burbuja.png");
   background-size: contain;
 }
 
@@ -331,33 +330,56 @@ p {
 
 // --------------------------------- Olvido su contrasena?
 .forgotPass {
+  width: 100%;
+  display: flex;
+  overflow: hidden;
+  align-items: center;
+  flex-direction: column;
+  padding: 1rem;
   height: 99.9vh;
   color: white;
   text-align: center;
 
-  h1 {
-    position: absolute;
+  video {
+    height: 48%;
   }
 
-  button {
-    width: 20vh;
-    height: 100%;
+  h1 {
+    position: absolute;
+    font-size: 23px;
+  }
+
+  .item:nth-child(odd) {
+    border-radius: 0 3rem 3rem 0;
+    margin-left: 0;
+    border-left: 0.0625rem solid transparent;
+
+    input {
+      margin-left: 15px;
+    }
+  }
+
+  .sendEmail {
+    width: 132px;
     outline: none;
+    font-size: 15px;
     cursor: pointer;
-    margin-top: 17px;
+    padding: 10px 20px;
     text-align: center;
+    font-weight: bolder;
     color: whitesmoke;
     border-radius: 1.5rem;
     background: #ce5b359f;
     font-family: "Poppins", sans-serif;
     border: 0.625rem solid rgba(0, 0, 0, 0.336);
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
   }
 
-  button:hover {
+  .sendEmail:hover {
     background: linear-gradient(141deg, #c85032 33%, #ec9443 64%);
   }
 
-  button:hover {
+  .sendEmail:hover {
     color: yellow;
     background: linear-gradient(141deg, #c85032 33%, #ec9443 64%);
   }
@@ -369,14 +391,16 @@ p {
     background: rgba(0, 0, 0, 0.5);
 
     .key {
-      height: 200px;
+      top: 100px;
+      height: 150px;
       position: absolute;
-      margin-top: -169px;
       border-radius: 50%;
       box-shadow: 3.3125rem 3.5625rem 3.125rem -1.4375rem rgba(0, 0, 0, 0.29);
     }
   }
 }
+
+
 
 // --------------------------------- 404 notFound
 
@@ -387,6 +411,7 @@ p {
   font-family: "Poppins", sans-serif;
   margin: 5rem 1.875rem 3.125rem 1.875rem;
   background: rgba(244, 179, 126, 0.267);
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
   box-shadow: 3.3125rem 3.5625rem 3.125rem -1.4375rem rgba(0, 0, 0, 0.29);
 
   h1 {
@@ -419,15 +444,17 @@ p {
   }
 
   button {
-    width: 40vw;
-    height: 50px;
+    width: 20vh;
+    height: 8.5vh;
     outline: none;
     cursor: pointer;
-    color: $colorWhite;
+    margin-top: 17px;
     text-align: center;
+    color: whitesmoke;
     border-radius: 1.5rem;
-    letter-spacing: 0.1875rem;
-    background: linear-gradient(82.14deg, #ec9443 -3.88%, #c85032 64.89%)
+    background: #ce5b359f;
+    font-family: "Poppins", sans-serif;
+    border: 0.625rem solid rgba(0, 0, 0, 0.336);
   }
 
   button:hover {

@@ -16,7 +16,7 @@ export default (post, user) => {
               : "./assets/private.png"
           }" />
           <p>${(post.registrationDate
-            ? post.registrationDate.toDate()
+            ? post.registrationDate
             : new Date()
           ).toLocaleString()}</p>
           <input type="text" class="idPublication" value="${post.id}">
@@ -49,18 +49,17 @@ export default (post, user) => {
   }" alt="imgShare" />
   </div>
   <div class="interactions">
-  <span id="likesCount"></span><img id="heart" data-publication="${
+  <span id="likesCount"></span><img id="heart" style="margin-left:0.01rem" data-publication="${
     post.id
   }" class="hvr-pulse-grow" alt="meGusta" src="./assets/corazon.svg" />
-    <span id="totalComments"></span> <img id="btnComment" src="./assets/coment.png" class="hvr-grow-rotate" alt="comentarios" />
+    <span id="totalComments" style="margin-left: 5px;"></span> <img id="btnComment" src="./assets/coment.png" class="hvr-grow-rotate" alt="comentarios" style="margin-left: 0.05rem;" />
 
     <label for="commentImg">
       <img id="iconCamera" class="hvr-bounce-in" src="./assets/commentImage.png" alt="subirImagen" style="width: 50px; height: 50px" />
     </label>
     <input type="file" id="commentImg" accept="image/*" style="display:none;">
-    <img id="commentImgPreview" src="" alt=""/>
-
-    <textarea id="textComment" cols="30" rows="2" spellcheck="false"></textarea>
+    <img id="commentImgPreview" src="" alt=""/> 
+    <textarea id="textComment" cols="30" rows="2" spellcheck="false">Comenta aquí</textarea>
     <button id="sendComment" type="submit"><img src="./assets/send.png" alt="send" /></button>
 
   </div>

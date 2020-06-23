@@ -22,8 +22,8 @@ const getPublications = () =>
 
 const getStorageRef = () => storageRef;
 
-const updateNamePublication = (idUser, newName) => {
-  const query = db.collection("publications").where("userId", "==", idUser);
+const updateNamePublication = (userId, newName) => {
+  const query = db.collection("publications").where("userId", "==", userId);
   query.get().then((publications) => {
     publications.forEach((post) => {
       db.collection("publications")
@@ -35,6 +35,7 @@ const updateNamePublication = (idUser, newName) => {
         .catch((err) => console.log(err));
     });
   });
+  return true;
 };
 
 const updatePhotoPublication = (idUser, newPhoto) => {
@@ -50,6 +51,7 @@ const updatePhotoPublication = (idUser, newPhoto) => {
         .catch((error) => console.log(error));
     });
   });
+  return true;
 };
 
 const deletePublication = (idPublication) => {
@@ -58,35 +60,29 @@ const deletePublication = (idPublication) => {
     .delete()
     .then(() => console.log("Document successfully deleted!"))
     .catch((err) => console.error("Error removing document: ", err));
+  return true;
 };
 
 const updatePublication = (idPublication, newContent) => {
   const publication = db.collection("publications").doc(idPublication);
-  return publication
-    .update({
+  publication.update({
       content: newContent,
     })
     .then(() => console.log("Document successfully updated!"))
     .catch((err) => console.error("Error updating document: ", err));
-};
-
-const incrementPunctuation = (id) => {
-  const publicationRef = db.collection("publications").doc(id);
-  const increment = firebase.firestore.FieldValue.increment(1);
-  return publicationRef.update({ punctuation: increment });
+  return true;
 };
 
 const addComment = (comment) => db.collection("comments").add(comment);
 
 const getComments = (postId) =>
-  db
-    .collection("comments")
-    .where("postId", "==", postId)
-    // .orderBy("date")
-    .get();
+  db.collection("comments").where("postId", "==", postId).get();
 
 const deleteComment = (commentId) =>
   db.collection("comments").doc(commentId).delete();
+
+const uploadCommentImage = (file) =>
+  storageRef.child("commentsImages/" + file.name).put(file);
 
 const addLike = (postId, userId) =>
   db.collection("likes").add({ userId, postId });
@@ -99,14 +95,6 @@ const getlike = (postId, userId) => {
     .get();
 };
 
-const removeLike = (idPublish, userId) => {
-  const publicationRef = db.collection("publications").doc(idPublish);
-  return publicationRef
-    .collection("likes")
-    .where("user", "==", userId)
-    .delete();
-};
-
 const getTotalLikes = (postId) =>
   db.collection("likes").where("postId", "==", postId).get();
 
@@ -114,15 +102,14 @@ export default {
   getlike,
   addLike,
   addComment,
-  deleteComment,
-  removeLike,
   getComments,
   getStorageRef,
   getTotalLikes,
+  deleteComment,
   getPublications,
   updatePublication,
   deletePublication,
-  incrementPunctuation,
+  uploadCommentImage,
   createNewPublication,
   updateNamePublication,
   updatePhotoPublication,
