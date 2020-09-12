@@ -78,13 +78,14 @@
 
       .profile-header {
         display: flex;
-        flex-direction: row;
-        flex-wrap: wrap;
-        flex-grow: 1;
-        align-items: center;
-        background-color: #883a24;
-        padding: 0.7rem 2rem 0.7rem 2rem;
-        justify-content: center;
+    	flex-direction: row;
+    	flex-wrap: wrap;
+    	flex-grow: 1;
+    	height: 6rem;
+    	align-items: center;
+    	background-color: #883a24;
+    	padding: 0rem 2rem 0px 2rem;
+    	justify-content: center;
 
         .logo-principal {
           display: flex;
